@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>ثبت پروژه | Nexora</title>
+
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,Tahoma,sans-serif
+}
+
+body{
+background:
+radial-gradient(circle at 20% 10%,#7657ff22,transparent 30%),
+#070a11;
+color:white;
+min-height:100vh;
+padding:25px;
+}
+
+.container{
+max-width:700px;
+margin:35px auto;
+}
+
+.card{
+background:#101520;
+border:1px solid #ffffff12;
+border-radius:25px;
+padding:30px;
+}
+
+.logo{
+font-size:24px;
+font-weight:900;
+margin-bottom:30px;
+}
+
+.logo span{
+background:linear-gradient(135deg,#7657ff,#19d3ae);
+padding:10px 13px;
+border-radius:12px;
+margin-left:8px;
+}
+
+h1{
+font-size:25px;
+margin-bottom:8px;
+}
+
+.subtitle{
+color:#8994a6;
+font-size:13px;
+margin-bottom:25px;
+}
+
+label{
+display:block;
+font-size:13px;
+margin:15px 0 8px;
+}
+
+input,select,textarea{
+width:100%;
+background:#151c2a;
+border:1px solid #ffffff10;
+color:white;
+padding:14px;
+border-radius:13px;
+outline:none;
+}
+
+textarea{
+height:150px;
+resize:vertical;
+}
+
+button{
+width:100%;
+margin-top:22px;
+padding:15px;
+border:0;
+border-radius:13px;
+background:linear-gradient(135deg,#7657ff,#19d3ae);
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+.back{
+display:block;
+text-align:center;
+margin-top:15px;
+color:#8e99aa;
+font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<div class="logo">
+<span>N</span>NEXORA
+</div>
+
+<h1>🚀 ثبت پروژه جدید</h1>
+
+<p class="subtitle">
+پروژه خود را معرفی کنید تا متخصصان بتوانند پیشنهاد ارسال کنند.
+</p>
+
+<label>عنوان پروژه</label>
+<input id="title" placeholder="مثلاً طراحی سایت فروشگاهی">
+
+<label>دسته‌بندی</label>
+
+<select id="category">
+
+<option value="">انتخاب دسته‌بندی</option>
+<option>طراحی سایت</option>
+<option>برنامه‌نویسی</option>
+<option>طراحی گرافیک</option>
+<option>ساخت اپلیکیشن</option>
+<option>هوش مصنوعی</option>
+<option>تولید محتوا</option>
+
+</select>
+
+<label>توضیحات پروژه</label>
+
+<textarea id="description"
+placeholder="توضیحات کامل پروژه را بنویسید..."></textarea>
+
+<label>بودجه تقریبی</label>
+
+<input id="budget"
+type="number"
+placeholder="مثلاً 5000000">
+
+<button onclick="createProject()">
+🚀 انتشار پروژه
+</button>
+
+<a href="profile.html" class="back">
+← بازگشت به پروفایل
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+const user =
+JSON.parse(localStorage.getItem("nexora_current_user"));
+
+if(!user){
+
+location.href="login.html";
+
+}
+
+
+function createProject(){
+
+const title =
+document.getElementById("title").value.trim();
+
+const category =
+document.getElementById("category").value;
+
+const description =
+document.getElementById("description").value.trim();
+
+const budget =
+document.getElementById("budget").value;
+
+if(!title || !category || !description){
+
+alert("لطفاً اطلاعات پروژه را کامل کنید.");
+
+return;
+
+}
+
+let projects =
+JSON.parse(localStorage.getItem("nexora_projects")) || [];
+
+projects.push({
+
+id:"PR-"+Date.now(),
+
+userId:user.id,
+
+title:title,
+
+category:category,
+
+description:description,
+
+budget:budget || "توافقی",
+
+status:"در انتظار پیشنهاد",
+
+createdAt:new Date().toISOString()
+
+});
+
+localStorage.setItem(
+"nexora_projects",
+JSON.stringify(projects)
+);
+
+alert("✅ پروژه با موفقیت ثبت شد!");
+
+location.href="profile.html";
+
+}
+
+</script>
+
+</body>
+  </html>
