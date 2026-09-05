@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>ویرایش پروفایل | Nexora</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Tahoma,sans-serif}
+
+body{
+background:
+radial-gradient(circle at 20% 10%,#7657ff22,transparent 30%),
+#070a11;
+color:white;
+min-height:100vh;
+padding:25px;
+}
+
+.container{
+max-width:650px;
+margin:40px auto;
+}
+
+.card{
+background:#101520;
+border:1px solid #ffffff12;
+border-radius:25px;
+padding:30px;
+box-shadow:0 20px 60px #0005;
+}
+
+.logo{
+font-size:25px;
+font-weight:900;
+margin-bottom:30px;
+}
+
+.logo span{
+background:linear-gradient(135deg,#7657ff,#19d3ae);
+padding:10px 13px;
+border-radius:12px;
+margin-left:8px;
+}
+
+h1{
+font-size:25px;
+margin-bottom:8px;
+}
+
+.subtitle{
+color:#8994a6;
+font-size:13px;
+margin-bottom:28px;
+}
+
+label{
+display:block;
+font-size:13px;
+margin-bottom:8px;
+}
+
+input,textarea{
+width:100%;
+background:#151c2a;
+border:1px solid #ffffff10;
+color:white;
+border-radius:13px;
+padding:14px;
+outline:none;
+margin-bottom:18px;
+}
+
+input:focus,textarea:focus{
+border-color:#7657ff;
+}
+
+textarea{
+min-height:120px;
+resize:vertical;
+}
+
+.buttons{
+display:flex;
+gap:10px;
+margin-top:5px;
+}
+
+button{
+flex:1;
+border:0;
+padding:14px;
+border-radius:13px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.save{
+background:linear-gradient(135deg,#7657ff,#19d3ae);
+color:white;
+}
+
+.cancel{
+background:#1a2230;
+color:#ddd;
+}
+
+.message{
+display:none;
+margin-top:15px;
+padding:12px;
+border-radius:12px;
+background:#19d3ae15;
+color:#19d3ae;
+text-align:center;
+font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<div class="logo">
+<span>N</span>NEXORA
+</div>
+
+<h1>ویرایش پروفایل</h1>
+
+<p class="subtitle">
+اطلاعات پروفایل خود را تغییر دهید.
+</p>
+
+<label>نام و نام خانوادگی</label>
+<input id="name" type="text">
+
+<label>نام کاربری</label>
+<input id="username" type="text">
+
+<label>معرفی کوتاه</label>
+<textarea id="bio" placeholder="مثلاً طراح سایت و برنامه‌نویس..."></textarea>
+
+<div class="buttons">
+
+<button class="cancel"
+onclick="location.href='profile.html'">
+انصراف
+</button>
+
+<button class="save"
+onclick="saveProfile()">
+ذخیره تغییرات
+</button>
+
+</div>
+
+<div class="message" id="message">
+✅ اطلاعات با موفقیت ذخیره شد
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let user =
+JSON.parse(localStorage.getItem("nexora_current_user"));
+
+if(!user){
+
+location.href="login.html";
+
+}else{
+
+document.getElementById("name").value =
+user.name || "";
+
+document.getElementById("username").value =
+user.username || "";
+
+document.getElementById("bio").value =
+user.bio || "";
+
+}
+
+
+function saveProfile(){
+
+const name =
+document.getElementById("name").value.trim();
+
+const username =
+document.getElementById("username").value.trim();
+
+const bio =
+document.getElementById("bio").value.trim();
+
+if(!name || !username){
+
+alert("لطفاً نام و نام کاربری را وارد کنید.");
+
+return;
+
+}
+
+user.name=name;
+user.username=username;
+user.bio=bio;
+
+localStorage.setItem(
+"nexora_current_user",
+JSON.stringify(user)
+);
+
+let users =
+JSON.parse(localStorage.getItem("nexora_users")) || [];
+
+const index =
+users.findIndex(u=>u.id===user.id);
+
+if(index!==-1){
+
+users[index]=user;
+
+localStorage.setItem(
+"nexora_users",
+JSON.stringify(users)
+);
+
+}
+
+document.getElementById("message").style.display="block";
+
+setTimeout(()=>{
+location.href="profile.html";
+},900);
+
+}
+
+</script>
+
+</body>
+</html>
