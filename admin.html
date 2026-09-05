@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Nexora Admin Panel</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Tahoma,Arial,sans-serif;
+}
+
+body{
+    background:#070a12;
+    color:#fff;
+}
+
+button,input{
+    font-family:inherit;
+}
+
+:root{
+    --primary:#7c5cff;
+    --blue:#00d4ff;
+    --green:#35e69a;
+    --red:#ff5577;
+    --yellow:#ffd36a;
+    --muted:#8c95a9;
+    --border:rgba(255,255,255,.08);
+    --card:rgba(255,255,255,.035);
+}
+
+.layout{
+    display:flex;
+    min-height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:245px;
+    background:#0b0e17;
+    border-left:1px solid var(--border);
+    padding:22px 15px;
+    position:fixed;
+    right:0;
+    top:0;
+    bottom:0;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:21px;
+    font-weight:900;
+    padding:5px 10px 25px;
+}
+
+.logo-icon{
+    width:40px;
+    height:40px;
+    border-radius:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,var(--primary),var(--blue));
+}
+
+.admin-label{
+    color:#555e72;
+    font-size:10px;
+    padding:0 10px 10px;
+}
+
+.menu button{
+    width:100%;
+    text-align:right;
+    background:transparent;
+    border:0;
+    color:#7f889b;
+    padding:13px;
+    border-radius:11px;
+    cursor:pointer;
+    margin-bottom:5px;
+}
+
+.menu button:hover,
+.menu button.active{
+    color:#fff;
+    background:rgba(124,92,255,.12);
+}
+
+/* MAIN */
+
+.main{
+    margin-right:245px;
+    width:calc(100% - 245px);
+    padding:25px;
+}
+
+.topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.title h1{
+    font-size:27px;
+}
+
+.title p{
+    color:#727b8e;
+    font-size:11px;
+    margin-top:8px;
+}
+
+.admin-user{
+    padding:11px 15px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    font-size:12px;
+}
+
+/* SECTIONS */
+
+.panel{
+    display:none;
+}
+
+.panel.active{
+    display:block;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-bottom:22px;
+}
+
+.stat{
+    padding:22px;
+    border:1px solid var(--border);
+    background:var(--card);
+    border-radius:18px;
+}
+
+.stat small{
+    color:#747d91;
+    font-size:10px;
+}
+
+.stat strong{
+    display:block;
+    margin-top:12px;
+    font-size:28px;
+}
+
+.stat span{
+    display:block;
+    margin-top:8px;
+    color:#60697d;
+    font-size:10px;
+}
+
+/* CARDS */
+
+.card{
+    padding:22px;
+    border:1px solid var(--border);
+    background:var(--card);
+    border-radius:20px;
+    margin-bottom:18px;
+}
+
+.card-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.card-head h2{
+    font-size:16px;
+}
+
+.search{
+    background:#080b13;
+    color:#fff;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:10px 13px;
+    outline:none;
+}
+
+/* TABLE */
+
+.table-wrap{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:700px;
+}
+
+th{
+    text-align:right;
+    color:#666f83;
+    font-size:10px;
+    padding:12px;
+    border-bottom:1px solid var(--border);
+}
+
+td{
+    padding:14px 12px;
+    border-bottom:1px solid rgba(255,255,255,.04);
+    font-size:11px;
+    color:#b1b8c8;
+}
+
+.status{
+    display:inline-block;
+    padding:6px 9px;
+    border-radius:20px;
+    font-size:9px;
+}
+
+.pending{
+    color:var(--yellow);
+    background:rgba(255,211,106,.1);
+}
+
+.approved{
+    color:var(--green);
+    background:rgba(53,230,154,.1);
+}
+
+.rejected{
+    color:#ff7892;
+    background:rgba(255,85,119,.1);
+}
+
+.verified{
+    color:#69dcff;
+    background:rgba(0,212,255,.1);
+}
+
+/* BUTTONS */
+
+.actions{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:0;
+    cursor:pointer;
+    padding:8px 11px;
+    border-radius:9px;
+    font-size:10px;
+    font-weight:bold;
+    color:#fff;
+}
+
+.green{
+    background:rgba(53,230,154,.13);
+    color:var(--green);
+}
+
+.red{
+    background:rgba(255,85,119,.12);
+    color:#ff7892;
+}
+
+.blue{
+    background:rgba(0,212,255,.1);
+    color:#69dcff;
+}
+
+.purple{
+    background:rgba(124,92,255,.14);
+    color:#ad9fff;
+}
+
+/* QUICK GRID */
+
+.quick{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.quick-card{
+    padding:22px;
+    border:1px solid var(--border);
+    border-radius:18px;
+    background:var(--card);
+}
+
+.quick-card strong{
+    display:block;
+    font-size:23px;
+    margin-bottom:7px;
+}
+
+.quick-card span{
+    color:#737c90;
+    font-size:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .sidebar{
+        position:static;
+        width:100%;
+        border-left:0;
+        border-bottom:1px solid var(--border);
+    }
+
+    .layout{
+        display:block;
+    }
+
+    .main{
+        margin-right:0;
+        width:100%;
+        padding:15px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .quick{
+        grid-template-columns:1fr;
+    }
+
+    .menu{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:4px;
+    }
+
+    .menu button{
+        margin:0;
+    }
+
+    .topbar{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="logo">
+    <div class="logo-icon">N</div>
+    Nexora
+</div>
+
+<div class="admin-label">
+    ADMINISTRATION
+</div>
+
+<div class="menu">
+
+<button class="active" onclick="showPanel('dashboard',this)">
+📊 داشبورد
+</button>
+
+<button onclick="showPanel('subscriptions',this)">
+💎 درخواست اشتراک
+</button>
+
+<button onclick="showPanel('verified',this)">
+🛡️ نشان رسمی
+</button>
+
+<button onclick="showPanel('users',this)">
+👥 کاربران
+</button>
+
+<button onclick="showPanel('projects',this)">
+📁 پروژه‌ها
+</button>
+
+<button onclick="showPanel('orders',this)">
+🛒 سفارش‌ها
+</button>
+
+<button onclick="showPanel('proposals',this)">
+📨 پیشنهادها
+</button>
+
+</div>
+
+</aside>
+
+
+<main class="main">
+
+<div class="topbar">
+
+<div class="title">
+<h1>Nexora Admin</h1>
+<p>مرکز مدیریت پلتفرم</p>
+</div>
+
+<div class="admin-user">
+🛡️ Administrator
+</div>
+
+</div>
+
+
+<!-- DASHBOARD -->
+
+<section id="dashboard" class="panel active">
+
+<div class="stats">
+
+<div class="stat">
+<small>کاربران</small>
+<strong id="usersCount">0</strong>
+<span>Registered Users</span>
+</div>
+
+<div class="stat">
+<small>پروژه‌ها</small>
+<strong id="projectsCount">0</strong>
+<span>Projects</span>
+</div>
+
+<div class="stat">
+<small>سفارش‌ها</small>
+<strong id="ordersCount">0</strong>
+<span>Orders</span>
+</div>
+
+<div class="stat">
+<small>درخواست اشتراک</small>
+<strong id="subsCount">0</strong>
+<span>Subscription Requests</span>
+</div>
+
+</div>
+
+
+<div class="quick">
+
+<div class="quick-card">
+<strong id="pendingSubs">0</strong>
+<span>درخواست اشتراک در انتظار بررسی</span>
+</div>
+
+<div class="quick-card">
+<strong id="verifiedCount">0</strong>
+<span>کاربران دارای نشان رسمی</span>
+</div>
+
+<div class="quick-card">
+<strong id="proposalsCount">0</strong>
+<span>پیشنهادهای ثبت‌شده</span>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SUBSCRIPTIONS -->
+
+<section id="subscriptions" class="panel">
+
+<div class="card">
+
+<div class="card-head">
+<h2>💎 درخواست‌های اشتراک</h2>
+<input class="search" placeholder="جستجو..." oninput="filterTable(this,'subsTable')">
+</div>
+
+<div class="table-wrap">
+
+<table id="subsTable">
+
+<thead>
+<tr>
+<th>کاربر</th>
+<th>ایمیل</th>
+<th>پلن</th>
+<th>تماس</th>
+<th>وضعیت</th>
+<th>عملیات</th>
+</tr>
+</thead>
+
+<tbody id="subsBody"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- VERIFIED -->
+
+<section id="verified" class="panel">
+
+<div class="card">
+
+<div class="card-head">
+<h2>🛡️ مدیریت نشان رسمی</h2>
+</div>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+<tr>
+<th>کاربر</th>
+<th>نام کاربری</th>
+<th>ایمیل</th>
+<th>وضعیت نشان</th>
+<th>عملیات</th>
+</tr>
+</thead>
+
+<tbody id="verifiedBody"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- USERS -->
+
+<section id="users" class="panel">
+
+<div class="card">
+
+<div class="card-head">
+<h2>👥 کاربران ثبت‌نام‌شده</h2>
+<input class="search" placeholder="جستجوی کاربر..." oninput="filterTable(this,'usersTable')">
+</div>
+
+<div class="table-wrap">
+
+<table id="usersTable">
+
+<thead>
+<tr>
+<th>نام</th>
+<th>Username</th>
+<th>ایمیل</th>
+<th>نشان</th>
+<th>تاریخ ثبت‌نام</th>
+</tr>
+</thead>
+
+<tbody id="usersBody"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects" class="panel">
+
+<div class="card">
+
+<div class="card-head">
+<h2>📁 پروژه‌ها</h2>
+</div>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+<tr>
+<th>عنوان</th>
+<th>دسته</th>
+<th>بودجه</th>
+<th>کاربر</th>
+<th>وضعیت</th>
+</tr>
+</thead>
+
+<tbody id="projectsBody"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ORDERS -->
+
+<section id="orders" class="panel">
+
+<div class="card">
+
+<div class="card-head">
+<h2>🛒 سفارش‌ها</h2>
+</div>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+<tr>
+<th>محصول</th>
+<th>کاربر</th>
+<th>قیمت</th>
+<th>وضعیت</th>
+</tr>
+</thead>
+
+<tbody id="ordersBody"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROPOSALS -->
+
+<section id="proposals" class="panel">
+
+<div class="card">
+
+<div class="card-head">
+<h2>📨 پیشنهادهای پروژه</h2>
+</div>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+<tr>
+<th>پروژه</th>
+<th>کاربر</th>
+<th>مبلغ</th>
+<th>زمان</th>
+<th>وضعیت</th>
+</tr>
+</thead>
+
+<tbody id="proposalsBody"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+
+<script>
+
+/* DATA */
+
+function get(key){
+    return JSON.parse(localStorage.getItem(key)||"[]");
+}
+
+
+/* PANEL */
+
+function showPanel(id,button){
+
+    document.querySelectorAll(".panel")
+    .forEach(x=>x.classList.remove("active"));
+
+    document.getElementById(id)
+    .classList.add("active");
+
+    document.querySelectorAll(".menu button")
+    .forEach(x=>x.classList.remove("active"));
+
+    button.classList.add("active");
+
+}
+
+
+/* DASHBOARD */
+
+function loadDashboard(){
+
+    const users=get("nexora_users");
+    const projects=get("nexora_projects");
+    const orders=get("nexora_orders");
+    const subs=get("nexora_subscription_requests");
+    const proposals=get("nexora_proposals");
+
+    document.getElementById("usersCount").innerText=users.length;
+    document.getElementById("projectsCount").innerText=projects.length;
+    document.getElementById("ordersCount").innerText=orders.length;
+    document.getElementById("subsCount").innerText=subs.length;
+
+    document.getElementById("pendingSubs").innerText=
+    subs.filter(x=>x.status==="pending").length;
+
+    document.getElementById("verifiedCount").innerText=
+    users.filter(x=>x.verified===true).length;
+
+    document.getElementById("proposalsCount").innerText=
+    proposals.length;
+
+}
+
+
+/* SUBSCRIPTIONS */
+
+function loadSubscriptions(){
+
+    const subs=get("nexora_subscription_requests");
+
+    const body=document.getElementById("subsBody");
+
+    body.innerHTML="";
+
+    if(!subs.length){
+
+        body.innerHTML=`
+        <tr>
+            <td colspan="6">درخواستی وجود ندارد.</td>
+        </tr>`;
+
+        return;
+    }
+
+    subs.slice().reverse().forEach(r=>{
+
+        let status="در انتظار";
+        let cls="pending";
+
+        if(r.status==="approved"){
+            status="تأیید شده";
+            cls="approved";
+        }
+
+        if(r.status==="rejected"){
+            status="رد شده";
+            cls="rejected";
+        }
+
+        body.innerHTML+=`
+
+        <tr>
+
+            <td>${r.name||"-"}</td>
+
+            <td>${r.email||"-"}</td>
+
+            <td>${r.plan||"-"}</td>
+
+            <td>${r.phone||"-"}</td>
+
+            <td>
+                <span class="status ${cls}">
+                    ${status}
+                </span>
+            </td>
+
+            <td>
+
+                <div class="actions">
+
+                    <button class="btn green"
+                    onclick="approveSub('${r.id}')">
+                    تأیید
+                    </button>
+
+                    <button class="btn red"
+                    onclick="rejectSub('${r.id}')">
+                    رد
+                    </button>
+
+                </div>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+
+/* APPROVE */
+
+function approveSub(id){
+
+    const subs=get("nexora_subscription_requests");
+
+    const index=subs.findIndex(x=>x.id===id);
+
+    if(index===-1)return;
+
+    subs[index].status="approved";
+    subs[index].approvedAt=new Date().toISOString();
+
+    localStorage.setItem(
+        "nexora_subscription_requests",
+        JSON.stringify(subs)
+    );
+
+    const users=get("nexora_users");
+
+    const userIndex=
+    users.findIndex(x=>x.id===subs[index].userId);
+
+    if(userIndex!==-1){
+
+        users[userIndex].subscription={
+            plan:subs[index].plan,
+            status:"active",
+            startedAt:new Date().toISOString()
+        };
+
+        localStorage.setItem(
+            "nexora_users",
+            JSON.stringify(users)
+        );
+
+    }
+
+    alert("اشتراک تأیید شد.");
+
+    refresh();
+
+}
+
+
+/* REJECT */
+
+function rejectSub(id){
+
+    const subs=get("nexora_subscription_requests");
+
+    const index=subs.findIndex(x=>x.id===id);
+
+    if(index===-1)return;
+
+    subs[index].status="rejected";
+    subs[index].rejectedAt=new Date().toISOString();
+
+    localStorage.setItem(
+        "nexora_subscription_requests",
+        JSON.stringify(subs)
+    );
+
+    alert("درخواست رد شد.");
+
+    refresh();
+
+}
+
+
+/* VERIFIED */
+
+function loadVerified(){
+
+    const users=get("nexora_users");
+
+    const body=document.getElementById("verifiedBody");
+
+    body.innerHTML="";
+
+    users.forEach(u=>{
+
+        body.innerHTML+=`
+
+        <tr>
+
+            <td>${u.name||"-"}</td>
+
+            <td>@${u.username||"-"}</td>
+
+            <td>${u.email||"-"}</td>
+
+            <td>
+
+                ${
+                    u.verified
+                    ? '<span class="status verified">✓ Verified</span>'
+                    : '<span class="status rejected">بدون نشان</span>'
+                }
+
+            </td>
+
+            <td>
+
+                <button class="btn purple"
+                onclick="toggleVerified('${u.id}')">
+
+                ${u.verified ? "لغو نشان" : "اعطای نشان"}
+
+                </button>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+
+/* TOGGLE VERIFIED */
+
+function toggleVerified(id){
+
+    const users=get("nexora_users");
+
+    const index=users.findIndex(x=>x.id===id);
+
+    if(index===-1)return;
+
+    users[index].verified=!users[index].verified;
+
+    if(users[index].verified){
+        users[index].verifiedAt=new Date().toISOString();
+    }else{
+        delete users[index].verifiedAt;
+    }
+
+    localStorage.setItem(
+        "nexora_users",
+        JSON.stringify(users)
+    );
+
+    const current=
+    JSON.parse(localStorage.getItem("nexora_current_user"));
+
+    if(current && current.id===id){
+
+        current.verified=users[index].verified;
+
+        localStorage.setItem(
+            "nexora_current_user",
+            JSON.stringify(current)
+        );
+
+    }
+
+    refresh();
+
+}
+
+
+/* USERS */
+
+function loadUsers(){
+
+    const users=get("nexora_users");
+
+    const body=document.getElementById("usersBody");
+
+    body.innerHTML="";
+
+    if(!users.length){
+
+        body.innerHTML=`
+        <tr>
+        <td colspan="5">هنوز کاربری ثبت‌نام نکرده است.</td>
+        </tr>`;
+
+        return;
+    }
+
+    users.slice().reverse().forEach(u=>{
+
+        body.innerHTML+=`
+
+        <tr>
+
+            <td>${u.name||"-"}</td>
+
+            <td>@${u.username||"-"}</td>
+
+            <td>${u.email||"-"}</td>
+
+            <td>
+            ${
+                u.verified
+                ? '<span class="status verified">✓ Verified</span>'
+                : "-"
+            }
+            </td>
+
+            <td>
+            ${
+                u.createdAt
+                ? new Date(u.createdAt).toLocaleDateString("fa-IR")
+                : "-"
+            }
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+
+/* PROJECTS */
+
+function loadProjects(){
+
+    const projects=get("nexora_projects");
+
+    const body=document.getElementById("projectsBody");
+
+    body.innerHTML="";
+
+    projects.forEach(p=>{
+
+        body.innerHTML+=`
+
+        <tr>
+
+            <td>${p.title||"-"}</td>
+
+            <td>${p.category||"-"}</td>
+
+            <td>${p.budget||"-"}</td>
+
+            <td>${p.userId||"-"}</td>
+
+            <td>${p.status||"-"}</td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+
+/* ORDERS */
+
+function loadOrders(){
+
+    const orders=get("nexora_orders");
+
+    const body=document.getElementById("ordersBody");
+
+    body.innerHTML="";
+
+    orders.forEach(o=>{
+
+        body.innerHTML+=`
+
+        <tr>
+
+            <td>${o.product||"-"}</td>
+
+            <td>${o.username||"-"}</td>
+
+            <td>${o.price||"-"}</td>
+
+            <td>${o.status||"-"}</td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+
+/* PROPOSALS */
+
+function loadProposals(){
+
+    const proposals=get("nexora_proposals");
+
+    const body=document.getElementById("proposalsBody");
+
+    body.innerHTML="";
+
+    proposals.forEach(p=>{
+
+        body.innerHTML+=`
+
+        <tr>
+
+            <td>${p.projectTitle||"-"}</td>
+
+            <td>@${p.username||"-"}</td>
+
+            <td>${p.amount||"-"}</td>
+
+            <td>${p.days||"-"} روز</td>
+
+            <td>${p.status||"-"}</td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+
+/* SEARCH */
+
+function filterTable(input,tableId){
+
+    const value=input.value.toLowerCase();
+
+    const rows=
+    document.querySelectorAll("#"+tableId+" tbody tr");
+
+    rows.forEach(row=>{
+
+        row.style.display=
+        row.innerText.toLowerCase().includes(value)
+        ? ""
+        : "none";
+
+    });
+
+}
+
+
+/* REFRESH */
+
+function refresh(){
+
+    loadDashboard();
+    loadSubscriptions();
+    loadVerified();
+    loadUsers();
+    loadProjects();
+    loadOrders();
+    loadProposals();
+
+}
+
+refresh();
+
+</script>
+
+</body>
+  </html>
