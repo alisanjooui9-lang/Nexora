@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>پیام‌ها | Nexora</title>
+
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,Tahoma,sans-serif
+}
+
+body{
+background:#070a11;
+color:white;
+min-height:100vh;
+padding:25px;
+}
+
+.container{
+max-width:850px;
+margin:30px auto;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.logo{
+font-size:23px;
+font-weight:900;
+}
+
+.logo span{
+background:linear-gradient(135deg,#7657ff,#19d3ae);
+padding:9px 12px;
+border-radius:11px;
+margin-left:7px;
+}
+
+.back{
+background:#151c2a;
+padding:10px 15px;
+border-radius:11px;
+font-size:13px;
+}
+
+.card{
+background:#101520;
+border:1px solid #ffffff10;
+border-radius:22px;
+overflow:hidden;
+}
+
+.empty{
+padding:80px 20px;
+text-align:center;
+}
+
+.icon{
+font-size:55px;
+margin-bottom:15px;
+}
+
+h1{
+font-size:24px;
+margin-bottom:8px;
+}
+
+p{
+color:#8994a6;
+font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<div class="logo">
+<span>N</span>NEXORA
+</div>
+
+<a href="profile.html" class="back">
+← پروفایل
+</a>
+
+</div>
+
+<div class="card">
+
+<div class="empty">
+
+<div class="icon">💬</div>
+
+<h1>پیام‌های شما</h1>
+
+<p>
+هنوز گفتگویی ندارید.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const user =
+JSON.parse(localStorage.getItem("nexora_current_user"));
+
+if(!user){
+location.href="login.html";
+}
+
+</script>
+
+</body>
+</html>
