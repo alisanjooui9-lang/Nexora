@@ -3,37 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Nexora؛ بازار خدمات، پروژه‌ها و محصولات دیجیتال">
-<title>Nexora | بازار دیجیتال</title>
+
+<title>Nexora | بازار حرفه‌ای خدمات دیجیتال</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
+    font-family:"Vazirmatn",sans-serif;
 }
 
 html{
     scroll-behavior:smooth;
 }
 
-:root{
-    --bg:#070a11;
-    --card:#101520;
-    --card2:#151c2a;
-    --text:#f5f7ff;
-    --muted:#9aa6b8;
-    --line:rgba(255,255,255,.08);
-    --primary:#7657ff;
-    --secondary:#19d3ae;
-}
-
 body{
-    font-family:Vazirmatn,Tahoma,sans-serif;
-    background:var(--bg);
-    color:var(--text);
+    background:
+        radial-gradient(circle at 10% 10%,rgba(118,87,255,.15),transparent 28%),
+        radial-gradient(circle at 90% 20%,rgba(25,211,174,.08),transparent 25%),
+        #070a11;
+    color:#fff;
     overflow-x:hidden;
 }
 
@@ -42,409 +34,367 @@ a{
     text-decoration:none;
 }
 
-button,
-input{
+button{
     font-family:inherit;
-}
-
-.container{
-    width:min(1180px,calc(100% - 28px));
-    margin:auto;
 }
 
 /* ================= NAVBAR ================= */
 
-.nav-wrapper{
+.navbar{
+    height:74px;
+    padding:0 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
     position:sticky;
     top:0;
     z-index:1000;
-    padding:12px 0;
-}
 
-.navbar{
-    display:flex;
-    align-items:center;
-    gap:18px;
-    padding:10px 13px;
-
-    background:rgba(10,14,23,.82);
+    background:rgba(7,10,17,.78);
     backdrop-filter:blur(18px);
 
-    border:1px solid var(--line);
-    border-radius:20px;
-
-    box-shadow:0 15px 50px rgba(0,0,0,.35);
+    border-bottom:1px solid rgba(255,255,255,.07);
 }
 
 .logo{
     display:flex;
     align-items:center;
     gap:10px;
-    font-size:19px;
+    font-size:22px;
     font-weight:900;
-    white-space:nowrap;
+    letter-spacing:.5px;
 }
 
 .logo-icon{
-    width:42px;
-    height:42px;
+    width:40px;
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
     border-radius:13px;
 
-    display:grid;
-    place-items:center;
+    background:linear-gradient(135deg,#7657ff,#19d3ae);
 
-    background:linear-gradient(
-        135deg,
-        var(--primary),
-        #a287ff
-    );
-
-    box-shadow:0 10px 30px rgba(118,87,255,.35);
+    box-shadow:
+        0 0 30px rgba(118,87,255,.35);
 }
 
 .nav-links{
     display:flex;
     align-items:center;
-    gap:3px;
-    flex:1;
+    gap:26px;
+
+    color:#9aa6b8;
+    font-size:14px;
 }
 
 .nav-links a{
-    padding:10px 12px;
-    color:#c8d0df;
-    border-radius:11px;
-    font-size:13px;
-    transition:.25s;
+    transition:.2s;
 }
 
 .nav-links a:hover{
-    background:rgba(255,255,255,.06);
-    color:white;
-    transform:translateY(-2px);
+    color:#fff;
 }
 
-.nav-actions{
+.auth-buttons{
     display:flex;
-    gap:8px;
+    align-items:center;
+    gap:9px;
 }
 
-.btn{
-    border:0;
+.login-btn,
+.register-btn{
+    padding:10px 17px;
     border-radius:12px;
-    padding:11px 16px;
-    cursor:pointer;
+    font-size:13px;
     font-weight:700;
-    transition:.25s;
+    transition:.2s;
 }
 
-.btn:hover{
+.login-btn{
+    background:#151c2a;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.login-btn:hover{
+    background:#1d2637;
+}
+
+.register-btn{
+    background:linear-gradient(135deg,#7657ff,#6345e8);
+    box-shadow:0 8px 25px rgba(118,87,255,.22);
+}
+
+.register-btn:hover{
     transform:translateY(-2px);
 }
 
-.btn-primary{
-    color:white;
-    background:linear-gradient(
-        135deg,
-        var(--primary),
-        #9a7dff
-    );
+/* MOBILE MENU */
 
-    box-shadow:0 10px 25px rgba(118,87,255,.2);
-}
-
-.btn-secondary{
-    color:white;
-    background:rgba(255,255,255,.05);
-    border:1px solid var(--line);
-}
-
-.menu-button{
+.menu-btn{
     display:none;
-    border:0;
-    background:none;
+
+    width:42px;
+    height:42px;
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:12px;
+
+    background:#151c2a;
     color:white;
-    font-size:25px;
-    cursor:pointer;
+
+    font-size:20px;
 }
 
 /* ================= HERO ================= */
 
 .hero{
-    padding:85px 0 60px;
-}
+    width:min(1200px,92%);
+    margin:0 auto;
 
-.hero-grid{
+    min-height:650px;
+
     display:grid;
-    grid-template-columns:1.05fr .95fr;
-    gap:55px;
+    grid-template-columns:1.15fr .85fr;
+
     align-items:center;
+    gap:50px;
 }
 
-.badge{
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero-badge{
     display:inline-flex;
     align-items:center;
     gap:8px;
 
     padding:8px 13px;
-    margin-bottom:20px;
 
-    border-radius:50px;
+    border-radius:12px;
 
-    color:#6eeed6;
-    background:rgba(25,211,174,.08);
-    border:1px solid rgba(25,211,174,.18);
+    background:rgba(118,87,255,.1);
+    border:1px solid rgba(118,87,255,.2);
+
+    color:#b7aaff;
 
     font-size:12px;
-}
+    font-weight:700;
 
-.badge-dot{
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:var(--secondary);
-
-    box-shadow:0 0 14px var(--secondary);
-
-    animation:pulse 1.7s infinite;
-}
-
-@keyframes pulse{
-    50%{
-        opacity:.35;
-        transform:scale(.7);
-    }
-}
-
-h1{
-    font-size:clamp(40px,6vw,68px);
-    line-height:1.12;
-    letter-spacing:-2px;
     margin-bottom:20px;
 }
 
-.gradient{
-    background:linear-gradient(
-        90deg,
-        white,
-        #a28cff,
-        #63ecd2
-    );
+.hero h1{
+    font-size:clamp(38px,6vw,70px);
+    line-height:1.15;
+    font-weight:900;
 
+    max-width:720px;
+}
+
+.hero h1 span{
+    background:linear-gradient(90deg,#7657ff,#19d3ae);
     -webkit-background-clip:text;
-    background-clip:text;
     color:transparent;
 }
 
 .hero-description{
-    color:var(--muted);
-    line-height:2;
+    color:#9aa6b8;
     font-size:16px;
+    line-height:2;
+
     max-width:650px;
+
+    margin:20px 0 28px;
 }
 
+/* SEARCH */
+
 .search-box{
+    max-width:650px;
+
     display:flex;
-    gap:8px;
+    align-items:center;
 
-    margin-top:28px;
-    padding:8px;
+    padding:7px;
 
-    background:#0d121c;
-    border:1px solid var(--line);
+    background:#101520;
+
+    border:1px solid rgba(255,255,255,.08);
+
     border-radius:17px;
 
-    box-shadow:0 20px 50px rgba(0,0,0,.25);
+    box-shadow:0 15px 50px rgba(0,0,0,.2);
 }
 
 .search-box input{
     flex:1;
-    min-width:0;
 
+    background:none;
     border:0;
     outline:0;
 
-    background:transparent;
-    color:white;
+    color:#fff;
 
-    padding:12px;
+    padding:13px 15px;
+
+    font-size:14px;
 }
 
 .search-box input::placeholder{
-    color:#687386;
+    color:#657083;
 }
 
-.hero-buttons{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:15px;
-}
+.search-box button{
+    border:0;
 
-/* ================= HERO CARD ================= */
-
-.hero-art{
-    position:relative;
-    min-height:420px;
-}
-
-.glass-card{
-    position:absolute;
-
-    background:rgba(17,22,34,.78);
-    backdrop-filter:blur(18px);
-
-    border:1px solid var(--line);
-    border-radius:25px;
-
-    box-shadow:0 25px 70px rgba(0,0,0,.35);
-}
-
-.main-project{
-    inset:25px 10px 35px 10px;
-    padding:25px;
-
-    transform:rotate(-3deg);
-
-    animation:floatCard 5s ease-in-out infinite;
-}
-
-@keyframes floatCard{
-    50%{
-        transform:rotate(-1deg) translateY(-9px);
-    }
-}
-
-.project-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px;
-}
-
-.project-top small{
-    color:#8793a7;
-}
-
-.project-top h3{
-    font-size:22px;
-    margin-top:5px;
-}
-
-.project-avatar{
-    width:47px;
-    height:47px;
-
-    display:grid;
-    place-items:center;
-
-    border-radius:14px;
-
-    background:linear-gradient(
-        135deg,
-        #26304a,
-        #7657ff
-    );
-}
-
-.project-text{
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.9;
-}
-
-.price{
-    font-size:27px;
-    font-weight:900;
-    margin:20px 0;
-}
-
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
-}
-
-.tag{
-    padding:6px 9px;
-    border-radius:8px;
-
-    background:rgba(255,255,255,.06);
-    color:#b8c1d0;
-
-    font-size:11px;
-}
-
-.project-info{
-    padding:14px;
-
-    border-radius:15px;
-
-    background:rgba(255,255,255,.04);
-}
-
-.info-row{
-    display:flex;
-    justify-content:space-between;
-
-    color:var(--muted);
-
-    font-size:11px;
-}
-
-.info-row + .info-row{
-    margin-top:8px;
-}
-
-.info-row b{
-    color:white;
-}
-
-.floating-card{
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    padding:15px 18px;
-}
-
-.floating-one{
-    top:4px;
-    right:-5px;
-}
-
-.floating-two{
-    bottom:5px;
-    left:-8px;
-}
-
-.floating-icon{
-    width:42px;
-    height:42px;
-
-    display:grid;
-    place-items:center;
+    padding:12px 20px;
 
     border-radius:12px;
 
-    background:rgba(118,87,255,.15);
+    background:linear-gradient(135deg,#7657ff,#6345e8);
 
-    font-size:20px;
+    color:#fff;
+
+    font-weight:800;
+
+    cursor:pointer;
 }
 
-.floating-card small{
-    display:block;
-    color:var(--muted);
+/* HERO BUTTONS */
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    margin-top:18px;
+}
+
+.primary-btn,
+.secondary-btn{
+    padding:13px 20px;
+
+    border-radius:13px;
+
+    font-size:13px;
+    font-weight:800;
+
+    transition:.2s;
+}
+
+.primary-btn{
+    background:linear-gradient(135deg,#7657ff,#19d3ae);
+}
+
+.secondary-btn{
+    background:#151c2a;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* HERO VISUAL */
+
+.hero-visual{
+    position:relative;
+    min-height:450px;
+}
+
+.glow{
+    position:absolute;
+
+    width:330px;
+    height:330px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#7657ff,#19d3ae);
+
+    filter:blur(100px);
+
+    opacity:.15;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+}
+
+.visual-card{
+    position:absolute;
+
+    background:rgba(16,21,32,.85);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:22px;
+
+    padding:22px;
+
+    box-shadow:0 25px 70px rgba(0,0,0,.3);
+}
+
+.visual-card.one{
+    width:260px;
+    top:40px;
+    right:20px;
+}
+
+.visual-card.two{
+    width:240px;
+    bottom:50px;
+    left:10px;
+}
+
+.visual-card.three{
+    width:210px;
+    top:190px;
+    left:80px;
+}
+
+.visual-icon{
+    width:45px;
+    height:45px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:#1a2232;
+
+    font-size:22px;
+
+    margin-bottom:14px;
+}
+
+.visual-card h3{
+    font-size:15px;
+    margin-bottom:5px;
+}
+
+.visual-card p{
+    color:#8490a3;
     font-size:11px;
-    margin-top:3px;
 }
 
-/* ================= SECTION ================= */
+/* ================= SECTIONS ================= */
 
-section{
-    padding:70px 0;
+.section{
+    width:min(1200px,92%);
+    margin:90px auto;
 }
 
-.section-header{
+.section-title{
     display:flex;
     justify-content:space-between;
     align-items:end;
@@ -452,509 +402,364 @@ section{
     margin-bottom:25px;
 }
 
-.section-header h2{
-    font-size:29px;
+.section-title h2{
+    font-size:27px;
+    font-weight:900;
 }
 
-.section-header p{
-    color:var(--muted);
-    font-size:13px;
-    margin-top:7px;
+.section-title p{
+    color:#7f8a9d;
+    font-size:12px;
+    margin-top:6px;
 }
 
-.more{
-    color:#a895ff;
-    font-size:13px;
+.view-all{
+    color:#a89bff;
+    font-size:12px;
 }
 
 /* ================= CATEGORIES ================= */
 
-.category-grid{
+.categories{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:15px;
+    gap:14px;
 }
 
 .category{
-    position:relative;
-    overflow:hidden;
+    padding:23px;
 
-    padding:22px;
+    background:#101520;
 
-    border-radius:20px;
+    border:1px solid rgba(255,255,255,.07);
 
-    background:linear-gradient(
-        180deg,
-        var(--card2),
-        var(--card)
-    );
+    border-radius:19px;
 
-    border:1px solid var(--line);
-
-    transition:.3s;
+    transition:.25s;
 }
 
 .category:hover{
-    transform:translateY(-7px);
+    transform:translateY(-5px);
     border-color:rgba(118,87,255,.35);
 }
 
 .category-icon{
     font-size:30px;
-    margin-bottom:16px;
+    margin-bottom:13px;
 }
 
 .category h3{
-    font-size:16px;
+    font-size:14px;
+    margin-bottom:5px;
 }
 
-.category span{
-    display:block;
-
-    color:var(--muted);
+.category p{
+    color:#788498;
     font-size:11px;
-
-    margin-top:6px;
 }
 
 /* ================= PROJECTS ================= */
 
-.project-grid{
+.cards{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:17px;
+    gap:16px;
 }
 
 .project-card{
-    padding:19px;
+    background:#101520;
+
+    border:1px solid rgba(255,255,255,.07);
 
     border-radius:21px;
 
-    background:linear-gradient(
-        180deg,
-        #121927,
-        #0d131d
-    );
+    overflow:hidden;
 
-    border:1px solid var(--line);
-
-    transition:.3s;
+    transition:.25s;
 }
 
 .project-card:hover{
-    transform:translateY(-7px);
-    border-color:rgba(118,87,255,.35);
+    transform:translateY(-5px);
 }
 
-.project-card h3{
-    font-size:17px;
-    margin:13px 0 8px;
+.project-image{
+    height:170px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(135deg,#7657ff22,#19d3ae12),
+        #151c2a;
+
+    font-size:55px;
 }
 
-.project-card p{
-    color:var(--muted);
-    font-size:12px;
-    line-height:1.9;
+.project-body{
+    padding:19px;
+}
+
+.project-body h3{
+    font-size:15px;
+    margin-bottom:8px;
+}
+
+.project-body p{
+    color:#818ca0;
+    font-size:11px;
+    line-height:1.8;
 }
 
 .project-footer{
     display:flex;
     justify-content:space-between;
+    align-items:center;
 
-    margin-top:18px;
-    padding-top:14px;
-
-    border-top:1px solid var(--line);
+    margin-top:16px;
 }
 
-.project-price{
-    color:#6ce7d0;
-    font-weight:800;
-}
-
-.project-time{
-    color:var(--muted);
-    font-size:11px;
-}
-
-/* ================= MARKET ================= */
-
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:17px;
-}
-
-.product-card{
-    padding:14px;
-
-    border-radius:21px;
-
-    background:#101620;
-
-    border:1px solid var(--line);
-
-    transition:.3s;
-}
-
-.product-card:hover{
-    transform:translateY(-7px);
-}
-
-.product-image{
-    height:155px;
-
-    display:grid;
-    place-items:center;
-
-    border-radius:16px;
-
-    background:linear-gradient(
-        135deg,
-        #1a2030,
-        #35265d
-    );
-
-    font-size:55px;
-
-    margin-bottom:15px;
-}
-
-.product-card h3{
-    font-size:16px;
-}
-
-.product-card p{
-    color:var(--muted);
-    font-size:12px;
-    line-height:1.8;
-
-    margin-top:7px;
-}
-
-.product-meta{
-    display:flex;
-    justify-content:space-between;
-
-    color:var(--muted);
-    font-size:11px;
-
-    margin-top:13px;
-}
-
-.product-price{
-    font-size:18px;
+.price{
+    color:#19d3ae;
     font-weight:900;
+    font-size:14px;
+}
 
-    margin-top:12px;
+.more{
+    padding:8px 11px;
+    border-radius:10px;
+    background:#171f2e;
+    color:#aab4c5;
+    font-size:11px;
 }
 
 /* ================= SECURITY ================= */
 
-.security-grid{
+.security{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:12px;
+    gap:14px;
 }
 
 .security-card{
-    padding:20px;
+    padding:23px;
 
-    border-radius:17px;
+    background:#101520;
 
-    background:rgba(255,255,255,.025);
+    border:1px solid rgba(255,255,255,.07);
 
-    border:1px solid var(--line);
+    border-radius:19px;
 }
 
-.security-card .security-icon{
-    font-size:25px;
+.security-card .icon{
+    font-size:28px;
+    margin-bottom:13px;
 }
 
-.security-card b{
-    display:block;
-    margin:10px 0 5px;
+.security-card h3{
+    font-size:14px;
+    margin-bottom:7px;
 }
 
-.security-card span{
-    color:var(--muted);
+.security-card p{
+    color:#7d889b;
     font-size:11px;
-    line-height:1.9;
+    line-height:1.8;
 }
 
 /* ================= CTA ================= */
 
 .cta{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    width:min(1200px,92%);
+    margin:100px auto;
 
-    gap:25px;
-
-    padding:45px;
+    padding:55px 40px;
 
     border-radius:28px;
 
-    border:1px solid rgba(118,87,255,.25);
+    text-align:center;
 
     background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(118,87,255,.18),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #111827,
-            #0c111a
-        );
+        radial-gradient(circle at 20% 50%,#7657ff22,transparent 30%),
+        radial-gradient(circle at 80% 50%,#19d3ae12,transparent 30%),
+        #101520;
+
+    border:1px solid rgba(255,255,255,.08);
 }
 
 .cta h2{
-    font-size:29px;
-    margin-bottom:8px;
+    font-size:32px;
+    margin-bottom:10px;
 }
 
 .cta p{
-    color:var(--muted);
+    color:#8c97a9;
     font-size:13px;
+    margin-bottom:24px;
+}
+
+.cta a{
+    display:inline-block;
+
+    padding:13px 24px;
+
+    border-radius:13px;
+
+    background:linear-gradient(135deg,#7657ff,#19d3ae);
+
+    font-size:13px;
+    font-weight:900;
 }
 
 /* ================= FOOTER ================= */
 
 footer{
-    padding:50px 0 25px;
-    border-top:1px solid var(--line);
+    border-top:1px solid rgba(255,255,255,.07);
+
+    padding:45px 6%;
+
+    color:#768195;
+
+    font-size:12px;
 }
 
-.footer-grid{
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1fr 1fr;
+.footer-inner{
+    width:min(1200px,100%);
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
     gap:30px;
 }
 
-footer h4{
-    margin-bottom:12px;
+.footer-logo{
+    color:#fff;
+    font-weight:900;
+    font-size:18px;
 }
 
-footer p,
-footer a{
-    color:var(--muted);
-    font-size:12px;
-    line-height:2.2;
-}
-
-.footer-bottom{
+.footer-links{
     display:flex;
-    justify-content:space-between;
-
-    margin-top:35px;
-    padding-top:18px;
-
-    border-top:1px solid var(--line);
-
-    color:#687386;
-    font-size:11px;
+    gap:20px;
 }
 
-/* ================= ANIMATION ================= */
-
-.reveal{
-    opacity:0;
-    transform:translateY(22px);
-
-    transition:
-        opacity .7s,
-        transform .7s;
-}
-
-.reveal.show{
-    opacity:1;
-    transform:none;
+.footer-links a:hover{
+    color:white;
 }
 
 /* ================= MOBILE ================= */
 
 @media(max-width:900px){
 
-    .menu-button{
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
         display:block;
     }
 
-    .nav-links{
-        position:absolute;
-
-        top:70px;
-        right:0;
-        left:0;
-
-        display:none;
-        flex-direction:column;
-        align-items:stretch;
-
-        padding:10px;
-
-        background:#0d121d;
-
-        border:1px solid var(--line);
-        border-radius:18px;
-
-        box-shadow:0 20px 60px rgba(0,0,0,.4);
-    }
-
-    .nav-links.open{
-        display:flex;
-        animation:menuOpen .25s ease;
-    }
-
-    @keyframes menuOpen{
-        from{
-            opacity:0;
-            transform:translateY(-8px);
-        }
-
-        to{
-            opacity:1;
-            transform:none;
-        }
-    }
-
-    .nav-actions .btn-secondary{
-        display:none;
-    }
-
-    .hero-grid{
-        grid-template-columns:1fr;
-    }
-
-    .category-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .project-grid,
-    .product-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .security-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .cta{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-}
-
-@media(max-width:600px){
-
-    .container{
-        width:calc(100% - 22px);
-    }
-
     .hero{
-        padding-top:45px;
-    }
-
-    h1{
-        font-size:40px;
-        letter-spacing:-1px;
+        grid-template-columns:1fr;
+        text-align:center;
+        padding-top:50px;
     }
 
     .hero-description{
-        font-size:14px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .search-box{
+        margin:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .hero-visual{
+        min-height:420px;
+    }
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .security{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+    }
+
+}
+
+@media(max-width:520px){
+
+    .navbar{
+        padding:0 4%;
+    }
+
+    .auth-buttons{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:38px;
     }
 
     .search-box{
         flex-direction:column;
-        background:transparent;
-        border:0;
-        box-shadow:none;
-        padding:0;
-    }
-
-    .search-box input{
-        background:#0d121c;
-        border:1px solid var(--line);
-        border-radius:13px;
+        align-items:stretch;
+        padding:7px;
     }
 
     .search-box button{
         width:100%;
     }
 
-    .hero-art{
-        min-height:320px;
-    }
-
-    .main-project{
-        inset:20px 4px 30px 4px;
-        padding:18px;
-    }
-
-    .floating-one{
-        right:-2px;
-    }
-
-    .floating-two{
-        left:-2px;
-    }
-
-    .section-header h2{
-        font-size:23px;
-    }
-
-    section{
-        padding:50px 0;
-    }
-
-    .category-grid,
-    .project-grid,
-    .product-grid,
-    .security-grid{
+    .categories{
         grid-template-columns:1fr 1fr;
+    }
+
+    .security{
+        grid-template-columns:1fr;
+    }
+
+    .visual-card.one{
+        right:0;
+    }
+
+    .visual-card.two{
+        left:0;
+    }
+
+    .visual-card.three{
+        left:50%;
+        transform:translateX(-50%);
+    }
+
+    .section-title{
+        align-items:start;
         gap:10px;
-    }
-
-    .category{
-        padding:16px;
-    }
-
-    .product-image{
-        height:115px;
-    }
-
-    .product-card{
-        padding:12px;
+        flex-direction:column;
     }
 
     .cta{
-        padding:28px;
+        padding:40px 20px;
     }
 
-    .footer-grid{
-        grid-template-columns:1fr 1fr;
+    .cta h2{
+        font-size:25px;
     }
 
-    .footer-bottom{
-        flex-direction:column;
-        gap:7px;
-    }
-}
-
-@media(max-width:390px){
-
-    .category-grid,
-    .project-grid,
-    .product-grid,
-    .security-grid,
-    .footer-grid{
-        grid-template-columns:1fr;
-    }
 }
 </style>
 </head>
@@ -963,197 +768,171 @@ footer a{
 
 <!-- ================= NAVBAR ================= -->
 
-<div class="nav-wrapper">
-<div class="container">
-
 <nav class="navbar">
 
-<a href="#home" class="logo">
+<a href="index.html" class="logo">
 <span class="logo-icon">N</span>
 NEXORA
 </a>
 
-<button class="menu-button" id="menuButton">
-☰
-</button>
+<div class="nav-links">
 
-<div class="nav-links" id="navLinks">
-
-<a href="#home">خانه</a>
+<a href="index.html">خانه</a>
 <a href="#projects">پروژه‌ها</a>
 <a href="#market">بازار</a>
 <a href="#categories">دسته‌بندی‌ها</a>
-<a href="#pro">اشتراک‌ها</a>
+<a href="#subscriptions">اشتراک‌ها</a>
 <a href="#about">درباره ما</a>
 
 </div>
 
-<div class="nav-actions">
+<div class="auth-buttons">
 
-<button class="btn btn-secondary">
+<a href="login.html" class="login-btn">
 ورود
-</button>
+</a>
 
-<button class="btn btn-primary">
+<a href="register.html" class="register-btn">
 ثبت‌نام
-</button>
+</a>
 
 </div>
+
+<button class="menu-btn" onclick="toggleMenu()">
+☰
+</button>
 
 </nav>
 
+
+<!-- MOBILE MENU -->
+
+<div id="mobileMenu" style="
+display:none;
+position:fixed;
+top:74px;
+right:4%;
+left:4%;
+z-index:999;
+background:#101520;
+border:1px solid rgba(255,255,255,.08);
+border-radius:18px;
+padding:15px;
+">
+
+<a href="index.html" onclick="closeMenu()" style="display:block;padding:12px">
+خانه
+</a>
+
+<a href="#projects" onclick="closeMenu()" style="display:block;padding:12px">
+پروژه‌ها
+</a>
+
+<a href="#market" onclick="closeMenu()" style="display:block;padding:12px">
+بازار
+</a>
+
+<a href="#categories" onclick="closeMenu()" style="display:block;padding:12px">
+دسته‌بندی‌ها
+</a>
+
+<a href="#subscriptions" onclick="closeMenu()" style="display:block;padding:12px">
+اشتراک‌ها
+</a>
+
 </div>
-</div>
 
 
-<!-- ================= MAIN ================= -->
-
-<main id="home">
-
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
-<div class="container">
+<div class="hero-content">
 
-<div class="hero-grid">
-
-<div class="reveal">
-
-<div class="badge">
-<span class="badge-dot"></span>
-بازار امن خدمات و محصولات دیجیتال
+<div class="hero-badge">
+✦ نسل جدید بازار خدمات دیجیتال
 </div>
 
 <h1>
-ایده‌ات را به
-<span class="gradient">واقعیت</span>
-تبدیل کن.
+ایده‌ات را
+<span>به واقعیت تبدیل کن.</span>
 </h1>
 
 <p class="hero-description">
-در Nexora پروژه ثبت کن، متخصص پیدا کن یا محصولات دیجیتال
-مثل سایت، اپلیکیشن، بازی، قالب و ابزارهای حرفه‌ای را
-خرید و فروش کن.
+در Nexora می‌توانی پروژه بسازی، متخصص پیدا کنی،
+خدمات دیجیتال ارائه بدهی و محصولات دیجیتال خودت را به فروش برسانی.
 </p>
+
 
 <div class="search-box">
 
 <input
 id="searchInput"
 type="text"
-placeholder="مثلاً طراحی سایت، لوگو، بازی..."
+placeholder="چه چیزی نیاز داری؟ مثلاً طراحی سایت، لوگو یا برنامه‌نویسی..."
 >
 
-<button
-class="btn btn-primary"
-onclick="searchSite()"
->
-جستجو 🔍
+<button onclick="searchSite()">
+جستجو
 </button>
 
 </div>
 
+
 <div class="hero-buttons">
 
-<a href="#projects" class="btn btn-primary">
+<a href="register.html" class="primary-btn">
+🚀 شروع فعالیت
+</a>
+
+<a href="#projects" class="secondary-btn">
 مشاهده پروژه‌ها
 </a>
 
-<a href="#market" class="btn btn-secondary">
-ورود به بازار
-</a>
-
 </div>
 
 </div>
 
 
-<!-- HERO VISUAL -->
+<div class="hero-visual">
 
-<div class="hero-art reveal">
+<div class="glow"></div>
 
-<div class="glass-card main-project">
+<div class="visual-card one">
 
-<div class="project-top">
+<div class="visual-icon">💻</div>
 
-<div>
-<small>پروژه جدید</small>
+<h3>پروژه جدید</h3>
 
-<h3>
-طراحی سایت مدرن
-</h3>
-
-</div>
-
-<div class="project-avatar">
-🌐
-</div>
-
-</div>
-
-<p class="project-text">
-یک سایت سریع، زیبا و کاملاً واکنش‌گرا
-برای یک کسب‌وکار دیجیتال نیاز دارم.
+<p>
+یک متخصص حرفه‌ای برای پروژه خود پیدا کن.
 </p>
 
-<div class="tags">
-
-<span class="tag">HTML/CSS</span>
-<span class="tag">JavaScript</span>
-<span class="tag">Responsive</span>
-
 </div>
 
-<div class="price">
-۲,۵۰۰,۰۰۰ تومان
-</div>
 
-<div class="project-info">
+<div class="visual-card two">
 
-<div class="info-row">
-<span>زمان تحویل</span>
-<b>۵ روز</b>
-</div>
+<div class="visual-icon">🤖</div>
 
-<div class="info-row">
-<span>پیشنهادها</span>
-<b>۱۲ پیشنهاد</b>
-</div>
+<h3>هوش مصنوعی</h3>
 
-</div>
+<p>
+خدمات و ابزارهای هوش مصنوعی.
+</p>
 
 </div>
 
 
-<div class="glass-card floating-card floating-one">
+<div class="visual-card three">
 
-<div class="floating-icon">
-🛡️
-</div>
+<div class="visual-icon">🎨</div>
 
-<div>
-<b>معامله امن</b>
-<small>پرداخت قابل پیگیری</small>
-</div>
+<h3>طراحی</h3>
 
-</div>
-
-
-<div class="glass-card floating-card floating-two">
-
-<div class="floating-icon">
-⭐
-</div>
-
-<div>
-<b>فروشنده برتر</b>
-<small>امتیاز ۴.۹ از ۵</small>
-</div>
-
-</div>
-
-</div>
+<p>
+ایده‌های خلاقانه برای برند شما.
+</p>
 
 </div>
 
@@ -1162,418 +941,182 @@ onclick="searchSite()"
 </section>
 
 
-<!-- CATEGORIES -->
+<!-- ================= CATEGORIES ================= -->
 
-<section id="categories">
+<section class="section" id="categories">
 
-<div class="container">
-
-<div class="section-header reveal">
+<div class="section-title">
 
 <div>
-
-<h2>
-دسته‌بندی‌های محبوب
-</h2>
-
-<p>
-هر چیزی که برای پروژه‌ات نیاز داری
-</p>
-
+<h2>دسته‌بندی‌ها</h2>
+<p>خدمات مورد نیازت را سریع پیدا کن.</p>
 </div>
-
-<a href="#" class="more">
-همه دسته‌بندی‌ها ←
-</a>
 
 </div>
 
 
-<div class="category-grid">
+<div class="categories">
 
-<a href="#" class="category reveal">
+<a class="category" href="#projects">
 <div class="category-icon">🌐</div>
 <h3>طراحی سایت</h3>
-<span>پروژه و خدمات</span>
+<p>وب‌سایت و فروشگاه اینترنتی</p>
 </a>
 
-<a href="#" class="category reveal">
+<a class="category" href="#projects">
 <div class="category-icon">📱</div>
 <h3>اپلیکیشن</h3>
-<span>Android و Web App</span>
+<p>ساخت اپلیکیشن موبایل</p>
 </a>
 
-<a href="#" class="category reveal">
+<a class="category" href="#projects">
 <div class="category-icon">🎮</div>
 <h3>بازی</h3>
-<span>بازی و پروژه گیم</span>
+<p>طراحی و توسعه بازی</p>
 </a>
 
-<a href="#" class="category reveal">
+<a class="category" href="#projects">
 <div class="category-icon">🎨</div>
 <h3>گرافیک</h3>
-<span>لوگو، بنر و طراحی</span>
+<p>لوگو، بنر و طراحی</p>
 </a>
 
-<a href="#" class="category reveal">
+<a class="category" href="#projects">
 <div class="category-icon">🤖</div>
 <h3>هوش مصنوعی</h3>
-<span>ابزار و پروژه AI</span>
+<p>API و ابزارهای AI</p>
 </a>
 
-<a href="#" class="category reveal">
+<a class="category" href="#projects">
 <div class="category-icon">💻</div>
 <h3>برنامه‌نویسی</h3>
-<span>کد و توسعه نرم‌افزار</span>
+<p>توسعه نرم‌افزار</p>
 </a>
 
-<a href="#" class="category reveal">
-<div class="category-icon">📢</div>
-<h3>رسانه دیجیتال</h3>
-<span>موارد مجاز انتقال</span>
-</a>
-
-<a href="#" class="category reveal">
-<div class="category-icon">✍️</div>
+<a class="category" href="#projects">
+<div class="category-icon">🎬</div>
 <h3>تولید محتوا</h3>
-<span>متن، ویدیو و محتوا</span>
+<p>ویدیو و محتوای دیجیتال</p>
 </a>
 
-</div>
+<a class="category" href="#projects">
+<div class="category-icon">📢</div>
+<h3>دیجیتال مارکتینگ</h3>
+<p>رشد و تبلیغات آنلاین</p>
+</a>
 
 </div>
 
 </section>
 
 
-<!-- PROJECTS -->
+<!-- ================= PROJECTS ================= -->
 
-<section id="projects">
+<section class="section" id="projects">
 
-<div class="container">
-
-<div class="section-header reveal">
+<div class="section-title">
 
 <div>
-
-<h2>
-پروژه‌های تازه 🔥
-</h2>
-
-<p>
-پروژه‌هایی که می‌توانی برایشان پیشنهاد بفرستی
-</p>
-
+<h2>پروژه‌های محبوب</h2>
+<p>نمونه‌ای از پروژه‌های موجود در Nexora</p>
 </div>
 
-<a href="#" class="more">
-مشاهده همه ←
+<a href="create-project.html" class="view-all">
+ثبت پروژه ←
 </a>
 
 </div>
 
 
-<div class="project-grid">
+<div class="cards">
 
-<article class="project-card reveal">
+<div class="project-card">
 
-<span class="tag">
-🎨 طراحی
-</span>
+<div class="project-image">
+🎨
+</div>
 
-<h3>
-طراحی لوگو برای برند جدید
-</h3>
+<div class="project-body">
+
+<h3>طراحی لوگوی حرفه‌ای</h3>
 
 <p>
-یک لوگوی ساده، حرفه‌ای و مناسب شبکه‌های اجتماعی
-برای یک برند جدید نیاز دارم.
+طراحی لوگوی مدرن برای یک برند تکنولوژی.
 </p>
 
 <div class="project-footer">
 
-<span class="project-price">
-۸۰۰,۰۰۰ تومان
+<span class="price">
+شروع از ۵۰۰ هزار تومان
 </span>
 
-<span class="project-time">
-⏱ ۳ روز
-</span>
-
-</div>
-
-</article>
-
-
-<article class="project-card reveal">
-
-<span class="tag">
-🌐 برنامه‌نویسی
-</span>
-
-<h3>
-ساخت صفحه فرود
-</h3>
-
-<p>
-طراحی یک Landing Page سریع و کاملاً موبایل‌پسند
-برای یک محصول دیجیتال.
-</p>
-
-<div class="project-footer">
-
-<span class="project-price">
-۱,۵۰۰,۰۰۰ تومان
-</span>
-
-<span class="project-time">
-⏱ ۴ روز
+<span class="more">
+مشاهده
 </span>
 
 </div>
-
-</article>
-
-
-<article class="project-card reveal">
-
-<span class="tag">
-🤖 هوش مصنوعی
-</span>
-
-<h3>
-اتصال سایت به API هوش مصنوعی
-</h3>
-
-<p>
-ساخت رابط ساده برای ارسال درخواست و نمایش
-پاسخ داخل سایت.
-</p>
-
-<div class="project-footer">
-
-<span class="project-price">
-۳,۰۰۰,۰۰۰ تومان
-</span>
-
-<span class="project-time">
-⏱ ۷ روز
-</span>
-
-</div>
-
-</article>
 
 </div>
 
 </div>
 
-</section>
 
+<div class="project-card">
 
-<!-- MARKET -->
-
-<section id="market">
-
-<div class="container">
-
-<div class="section-header reveal">
-
-<div>
-
-<h2>
-🔥 بازار محصولات دیجیتال
-</h2>
-
-<p>
-محصولت را بفروش یا چیزی که نیاز داری پیدا کن
-</p>
-
-</div>
-
-<a href="#" class="more">
-ورود به بازار ←
-</a>
-
-</div>
-
-
-<div class="product-grid">
-
-
-<article class="product-card reveal">
-
-<div class="product-image">
+<div class="project-image">
 🌐
 </div>
 
-<h3>
-قالب سایت شرکتی
-</h3>
+<div class="project-body">
+
+<h3>طراحی Landing Page</h3>
 
 <p>
-قالب مدرن و واکنش‌گرا برای معرفی کسب‌وکار.
+ساخت صفحه فرود مدرن و واکنش‌گرا.
 </p>
 
-<div class="product-meta">
-<span>⭐ ۴.۸</span>
-<span>۱۲ فروش</span>
+<div class="project-footer">
+
+<span class="price">
+شروع از ۱ میلیون تومان
+</span>
+
+<span class="more">
+مشاهده
+</span>
+
 </div>
 
-<div class="product-price">
-۳۹۰,۰۰۰ تومان
 </div>
 
-</article>
-
-
-<article class="product-card reveal">
-
-<div class="product-image">
-🎮
 </div>
 
-<h3>
-پروژه بازی موبایل
-</h3>
 
-<p>
-پروژه آماده برای توسعه و شخصی‌سازی بازی.
-</p>
+<div class="project-card">
 
-<div class="product-meta">
-<span>⭐ ۴.۹</span>
-<span>۸ فروش</span>
-</div>
-
-<div class="product-price">
-۱,۲۰۰,۰۰۰ تومان
-</div>
-
-</article>
-
-
-<article class="product-card reveal">
-
-<div class="product-image">
+<div class="project-image">
 🤖
 </div>
 
-<h3>
-ابزار هوش مصنوعی
-</h3>
+<div class="project-body">
+
+<h3>اتصال API هوش مصنوعی</h3>
 
 <p>
-ابزار کاربردی AI برای استفاده در پروژه‌های وب.
+اتصال سرویس هوش مصنوعی به سایت یا اپلیکیشن.
 </p>
 
-<div class="product-meta">
-<span>⭐ ۵.۰</span>
-<span>۲۱ فروش</span>
-</div>
+<div class="project-footer">
 
-<div class="product-price">
-۷۵۰,۰۰۰ تومان
-</div>
+<span class="price">
+شروع از ۸۰۰ هزار تومان
+</span>
 
-</article>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- SECURITY -->
-
-<section>
-
-<div class="container">
-
-<div class="section-header reveal">
-
-<div>
-
-<h2>
-چرا Nexora؟ 🛡️
-</h2>
-
-<p>
-برای خرید و فروش راحت‌تر و امن‌تر
-</p>
-
-</div>
-
-</div>
-
-
-<div class="security-grid">
-
-<div class="security-card reveal">
-
-<div class="security-icon">
-🔒
-</div>
-
-<b>
-معامله امن
-</b>
-
-<span>
-فرآیند معامله مشخص و قابل پیگیری.
+<span class="more">
+مشاهده
 </span>
 
 </div>
-
-
-<div class="security-card reveal">
-
-<div class="security-icon">
-💬
-</div>
-
-<b>
-چت داخلی
-</b>
-
-<span>
-گفت‌وگو درباره پروژه و معامله در یک محیط واحد.
-</span>
-
-</div>
-
-
-<div class="security-card reveal">
-
-<div class="security-icon">
-⭐
-</div>
-
-<b>
-امتیازدهی
-</b>
-
-<span>
-ثبت امتیاز و تجربه کاربران بعد از معامله.
-</span>
-
-</div>
-
-
-<div class="security-card reveal">
-
-<div class="security-icon">
-🚨
-</div>
-
-<b>
-گزارش و داوری
-</b>
-
-<span>
-در صورت اختلاف امکان ثبت گزارش و بررسی وجود دارد.
-</span>
 
 </div>
 
@@ -1584,153 +1127,246 @@ onclick="searchSite()"
 </section>
 
 
-<!-- SUBSCRIPTION -->
+<!-- ================= MARKET ================= -->
 
-<section id="pro">
+<section class="section" id="market">
 
-<div class="container">
-
-<div class="cta reveal">
+<div class="section-title">
 
 <div>
+<h2>🛒 بازار دیجیتال</h2>
+<p>محصولات آماده و فایل‌های دیجیتال</p>
+</div>
 
-<h2>
-حسابت را حرفه‌ای‌تر کن 👑
-</h2>
+</div>
+
+
+<div class="cards">
+
+<div class="project-card">
+
+<div class="project-image">
+🌐
+</div>
+
+<div class="project-body">
+
+<h3>قالب سایت شرکتی</h3>
 
 <p>
-با اشتراک‌های ویژه امکانات بیشتر و نشان‌های داخل Nexora دریافت کن.
+قالب آماده و مدرن برای سایت‌های شرکتی.
+</p>
+
+<div class="project-footer">
+
+<span class="price">
+۱۹۹ هزار تومان
+</span>
+
+<span class="more">
+خرید
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="project-card">
+
+<div class="project-image">
+🎮
+</div>
+
+<div class="project-body">
+
+<h3>پروژه بازی موبایل</h3>
+
+<p>
+پروژه آماده بازی برای توسعه بیشتر.
+</p>
+
+<div class="project-footer">
+
+<span class="price">
+۴۹۹ هزار تومان
+</span>
+
+<span class="more">
+مشاهده
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="project-card">
+
+<div class="project-image">
+🤖
+</div>
+
+<div class="project-body">
+
+<h3>ابزار هوش مصنوعی</h3>
+
+<p>
+ابزار آماده برای استفاده در پروژه‌های دیجیتال.
+</p>
+
+<div class="project-footer">
+
+<span class="price">
+۳۹۹ هزار تومان
+</span>
+
+<span class="more">
+خرید
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SECURITY ================= -->
+
+<section class="section" id="about">
+
+<div class="section-title">
+
+<div>
+<h2>🛡️ چرا Nexora؟</h2>
+<p>ساخته شده برای تجربه بهتر در پروژه‌های دیجیتال.</p>
+</div>
+
+</div>
+
+
+<div class="security">
+
+<div class="security-card">
+
+<div class="icon">🔐</div>
+
+<h3>امنیت</h3>
+
+<p>
+محیط امن‌تر برای ارتباط و مدیریت پروژه.
 </p>
 
 </div>
 
-<a href="#" class="btn btn-primary">
-مشاهده اشتراک‌ها
+
+<div class="security-card">
+
+<div class="icon">💬</div>
+
+<h3>پیام‌رسانی</h3>
+
+<p>
+ارتباط مستقیم بین کارفرما و متخصص.
+</p>
+
+</div>
+
+
+<div class="security-card">
+
+<div class="icon">⭐</div>
+
+<h3>امتیازدهی</h3>
+
+<p>
+مشاهده امتیاز و سابقه کاربران.
+</p>
+
+</div>
+
+
+<div class="security-card">
+
+<div class="icon">⚖️</div>
+
+<h3>رسیدگی</h3>
+
+<p>
+امکان گزارش و بررسی مشکلات پروژه.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SUBSCRIPTIONS ================= -->
+
+<section class="cta" id="subscriptions">
+
+<h2>
+👑 Nexora Plus
+</h2>
+
+<p>
+با اشتراک ویژه، امکانات بیشتری برای حساب خود فعال کن.
+</p>
+
+<a href="register.html">
+شروع کنید
 </a>
 
-</div>
-
-</div>
-
 </section>
-
-</main>
 
 
 <!-- ================= FOOTER ================= -->
 
-<footer id="about">
+<footer>
 
-<div class="container">
-
-<div class="footer-grid">
+<div class="footer-inner">
 
 <div>
 
-<a href="#home" class="logo">
-
-<span class="logo-icon">
-N
-</span>
-
+<div class="footer-logo">
 NEXORA
+</div>
 
-</a>
-
-<p style="margin-top:13px">
-بازار خدمات، پروژه‌ها و محصولات دیجیتال
-در یک محیط ساده و امن.
+<p style="margin-top:8px">
+بازار حرفه‌ای خدمات و محصولات دیجیتال.
 </p>
 
 </div>
 
 
-<div>
+<div class="footer-links">
 
-<h4>
-دسترسی سریع
-</h4>
-
-<a href="#projects">
-پروژه‌ها
+<a href="index.html">
+خانه
 </a>
 
-<br>
-
-<a href="#market">
-بازار
+<a href="login.html">
+ورود
 </a>
 
-<br>
-
-<a href="#categories">
-دسته‌بندی‌ها
+<a href="register.html">
+ثبت‌نام
 </a>
 
-</div>
-
-
-<div>
-
-<h4>
-برای کاربران
-</h4>
-
-<a href="#">
-ثبت پروژه
+<a href="profile.html">
+پروفایل
 </a>
-
-<br>
-
-<a href="#">
-فروش محصول
-</a>
-
-<br>
-
-<a href="#">
-راهنما
-</a>
-
-</div>
-
-
-<div>
-
-<h4>
-پشتیبانی
-</h4>
-
-<a href="#">
-قوانین
-</a>
-
-<br>
-
-<a href="#">
-حریم خصوصی
-</a>
-
-<br>
-
-<a href="#">
-تماس با ما
-</a>
-
-</div>
-
-</div>
-
-
-<div class="footer-bottom">
-
-<span>
-© 2026 Nexora — تمامی حقوق محفوظ است.
-</span>
-
-<span>
-ساخته شده برای اقتصاد دیجیتال 🚀
-</span>
 
 </div>
 
@@ -1741,102 +1377,1559 @@ NEXORA
 
 <script>
 
-/* ================= MENU ================= */
+/* MOBILE MENU */
 
-const menuButton =
-document.getElementById("menuButton");
+function toggleMenu(){
 
-const navLinks =
-document.getElementById("navLinks");
+const menu =
+document.getElementById("mobileMenu");
 
-menuButton.addEventListener("click",function(){
+menu.style.display =
+menu.style.display === "block"
+? "none"
+: "block";
 
-    navLinks.classList.toggle("open");
+}
 
-});
+function closeMenu(){
 
-
-document.querySelectorAll(".nav-links a")
-.forEach(function(link){
-
-    link.addEventListener("click",function(){
-
-        navLinks.classList.remove("open");
-
-    });
-
-});
-
-
-/* ================= SCROLL ANIMATION ================= */
-
-const observer =
-new IntersectionObserver(
-function(entries){
-
-    entries.forEach(function(entry){
-
-        if(entry.isIntersecting){
-
-            entry.target.classList.add("show");
-
-        }
-
-    });
-
-},
-{
-    threshold:.12
-});
-
-
-document.querySelectorAll(".reveal")
-.forEach(function(element){
-
-    observer.observe(element);
-
-});
-
-
-/* ================= SEARCH ================= */
-
-function searchSite(){
-
-    const input =
-    document.getElementById("searchInput");
-
-    const value =
-    input.value.trim();
-
-    if(value === ""){
-
-        input.focus();
-
-        return;
-
-    }
-
-    alert(
-        "جستجو برای «" +
-        value +
-        "» در نسخه کامل به صفحه نتایج متصل می‌شود."
-    );
+document.getElementById("mobileMenu")
+.style.display="none";
 
 }
 
 
-document.getElementById("searchInput")
-.addEventListener("keydown",function(event){
+/* SEARCH */
 
-    if(event.key === "Enter"){
+function searchSite(){
 
-        searchSite();
+const input =
+document.getElementById("searchInput");
 
-    }
+const query =
+input.value.trim();
+
+if(!query){
+
+alert("🔎 لطفاً چیزی برای جستجو وارد کنید.");
+
+return;
+
+}
+
+alert(
+"🔎 جستجو برای «" +
+query +
+"» در نسخه بعدی به سیستم جستجوی Nexora متصل می‌شود."
+);
+
+}
+
+
+/* REVEAL ANIMATION */
+
+const elements =
+document.querySelectorAll(
+".category,.project-card,.security-card,.visual-card"
+);
+
+const observer =
+new IntersectionObserver(
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+entry.target.style.transform="translateY(0)";
+
+}
+
+});
+
+},
+{threshold:.1}
+);
+
+elements.forEach(el=>{
+
+el.style.opacity="0";
+el.style.transform="translateY(20px)";
+el.style.transition=".6s";
+
+observer.observe(el);
 
 });
 
 </script>
 
 </body>
-  </html>
+                                          </html><!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nexora | بازار حرفه‌ای خدمات دیجیتال</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Vazirmatn",sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        radial-gradient(circle at 10% 10%,rgba(118,87,255,.15),transparent 28%),
+        radial-gradient(circle at 90% 20%,rgba(25,211,174,.08),transparent 25%),
+        #070a11;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    height:74px;
+    padding:0 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(7,10,17,.78);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:.5px;
+}
+
+.logo-icon{
+    width:40px;
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:linear-gradient(135deg,#7657ff,#19d3ae);
+
+    box-shadow:
+        0 0 30px rgba(118,87,255,.35);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:26px;
+
+    color:#9aa6b8;
+    font-size:14px;
+}
+
+.nav-links a{
+    transition:.2s;
+}
+
+.nav-links a:hover{
+    color:#fff;
+}
+
+.auth-buttons{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.login-btn,
+.register-btn{
+    padding:10px 17px;
+    border-radius:12px;
+    font-size:13px;
+    font-weight:700;
+    transition:.2s;
+}
+
+.login-btn{
+    background:#151c2a;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.login-btn:hover{
+    background:#1d2637;
+}
+
+.register-btn{
+    background:linear-gradient(135deg,#7657ff,#6345e8);
+    box-shadow:0 8px 25px rgba(118,87,255,.22);
+}
+
+.register-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* MOBILE MENU */
+
+.menu-btn{
+    display:none;
+
+    width:42px;
+    height:42px;
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:12px;
+
+    background:#151c2a;
+    color:white;
+
+    font-size:20px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    width:min(1200px,92%);
+    margin:0 auto;
+
+    min-height:650px;
+
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+
+    align-items:center;
+    gap:50px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 13px;
+
+    border-radius:12px;
+
+    background:rgba(118,87,255,.1);
+    border:1px solid rgba(118,87,255,.2);
+
+    color:#b7aaff;
+
+    font-size:12px;
+    font-weight:700;
+
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(38px,6vw,70px);
+    line-height:1.15;
+    font-weight:900;
+
+    max-width:720px;
+}
+
+.hero h1 span{
+    background:linear-gradient(90deg,#7657ff,#19d3ae);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero-description{
+    color:#9aa6b8;
+    font-size:16px;
+    line-height:2;
+
+    max-width:650px;
+
+    margin:20px 0 28px;
+}
+
+/* SEARCH */
+
+.search-box{
+    max-width:650px;
+
+    display:flex;
+    align-items:center;
+
+    padding:7px;
+
+    background:#101520;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:17px;
+
+    box-shadow:0 15px 50px rgba(0,0,0,.2);
+}
+
+.search-box input{
+    flex:1;
+
+    background:none;
+    border:0;
+    outline:0;
+
+    color:#fff;
+
+    padding:13px 15px;
+
+    font-size:14px;
+}
+
+.search-box input::placeholder{
+    color:#657083;
+}
+
+.search-box button{
+    border:0;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    background:linear-gradient(135deg,#7657ff,#6345e8);
+
+    color:#fff;
+
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+/* HERO BUTTONS */
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    margin-top:18px;
+}
+
+.primary-btn,
+.secondary-btn{
+    padding:13px 20px;
+
+    border-radius:13px;
+
+    font-size:13px;
+    font-weight:800;
+
+    transition:.2s;
+}
+
+.primary-btn{
+    background:linear-gradient(135deg,#7657ff,#19d3ae);
+}
+
+.secondary-btn{
+    background:#151c2a;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* HERO VISUAL */
+
+.hero-visual{
+    position:relative;
+    min-height:450px;
+}
+
+.glow{
+    position:absolute;
+
+    width:330px;
+    height:330px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#7657ff,#19d3ae);
+
+    filter:blur(100px);
+
+    opacity:.15;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+}
+
+.visual-card{
+    position:absolute;
+
+    background:rgba(16,21,32,.85);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:22px;
+
+    padding:22px;
+
+    box-shadow:0 25px 70px rgba(0,0,0,.3);
+}
+
+.visual-card.one{
+    width:260px;
+    top:40px;
+    right:20px;
+}
+
+.visual-card.two{
+    width:240px;
+    bottom:50px;
+    left:10px;
+}
+
+.visual-card.three{
+    width:210px;
+    top:190px;
+    left:80px;
+}
+
+.visual-icon{
+    width:45px;
+    height:45px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:#1a2232;
+
+    font-size:22px;
+
+    margin-bottom:14px;
+}
+
+.visual-card h3{
+    font-size:15px;
+    margin-bottom:5px;
+}
+
+.visual-card p{
+    color:#8490a3;
+    font-size:11px;
+}
+
+/* ================= SECTIONS ================= */
+
+.section{
+    width:min(1200px,92%);
+    margin:90px auto;
+}
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+
+    margin-bottom:25px;
+}
+
+.section-title h2{
+    font-size:27px;
+    font-weight:900;
+}
+
+.section-title p{
+    color:#7f8a9d;
+    font-size:12px;
+    margin-top:6px;
+}
+
+.view-all{
+    color:#a89bff;
+    font-size:12px;
+}
+
+/* ================= CATEGORIES ================= */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.category{
+    padding:23px;
+
+    background:#101520;
+
+    border:1px solid rgba(255,255,255,.07);
+
+    border-radius:19px;
+
+    transition:.25s;
+}
+
+.category:hover{
+    transform:translateY(-5px);
+    border-color:rgba(118,87,255,.35);
+}
+
+.category-icon{
+    font-size:30px;
+    margin-bottom:13px;
+}
+
+.category h3{
+    font-size:14px;
+    margin-bottom:5px;
+}
+
+.category p{
+    color:#788498;
+    font-size:11px;
+}
+
+/* ================= PROJECTS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.project-card{
+    background:#101520;
+
+    border:1px solid rgba(255,255,255,.07);
+
+    border-radius:21px;
+
+    overflow:hidden;
+
+    transition:.25s;
+}
+
+.project-card:hover{
+    transform:translateY(-5px);
+}
+
+.project-image{
+    height:170px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(135deg,#7657ff22,#19d3ae12),
+        #151c2a;
+
+    font-size:55px;
+}
+
+.project-body{
+    padding:19px;
+}
+
+.project-body h3{
+    font-size:15px;
+    margin-bottom:8px;
+}
+
+.project-body p{
+    color:#818ca0;
+    font-size:11px;
+    line-height:1.8;
+}
+
+.project-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-top:16px;
+}
+
+.price{
+    color:#19d3ae;
+    font-weight:900;
+    font-size:14px;
+}
+
+.more{
+    padding:8px 11px;
+    border-radius:10px;
+    background:#171f2e;
+    color:#aab4c5;
+    font-size:11px;
+}
+
+/* ================= SECURITY ================= */
+
+.security{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.security-card{
+    padding:23px;
+
+    background:#101520;
+
+    border:1px solid rgba(255,255,255,.07);
+
+    border-radius:19px;
+}
+
+.security-card .icon{
+    font-size:28px;
+    margin-bottom:13px;
+}
+
+.security-card h3{
+    font-size:14px;
+    margin-bottom:7px;
+}
+
+.security-card p{
+    color:#7d889b;
+    font-size:11px;
+    line-height:1.8;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    width:min(1200px,92%);
+    margin:100px auto;
+
+    padding:55px 40px;
+
+    border-radius:28px;
+
+    text-align:center;
+
+    background:
+        radial-gradient(circle at 20% 50%,#7657ff22,transparent 30%),
+        radial-gradient(circle at 80% 50%,#19d3ae12,transparent 30%),
+        #101520;
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.cta h2{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.cta p{
+    color:#8c97a9;
+    font-size:13px;
+    margin-bottom:24px;
+}
+
+.cta a{
+    display:inline-block;
+
+    padding:13px 24px;
+
+    border-radius:13px;
+
+    background:linear-gradient(135deg,#7657ff,#19d3ae);
+
+    font-size:13px;
+    font-weight:900;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    border-top:1px solid rgba(255,255,255,.07);
+
+    padding:45px 6%;
+
+    color:#768195;
+
+    font-size:12px;
+}
+
+.footer-inner{
+    width:min(1200px,100%);
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.footer-logo{
+    color:#fff;
+    font-weight:900;
+    font-size:18px;
+}
+
+.footer-links{
+    display:flex;
+    gap:20px;
+}
+
+.footer-links a:hover{
+    color:white;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+        padding-top:50px;
+    }
+
+    .hero-description{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .search-box{
+        margin:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .hero-visual{
+        min-height:420px;
+    }
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .security{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+    }
+
+}
+
+@media(max-width:520px){
+
+    .navbar{
+        padding:0 4%;
+    }
+
+    .auth-buttons{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .search-box{
+        flex-direction:column;
+        align-items:stretch;
+        padding:7px;
+    }
+
+    .search-box button{
+        width:100%;
+    }
+
+    .categories{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .security{
+        grid-template-columns:1fr;
+    }
+
+    .visual-card.one{
+        right:0;
+    }
+
+    .visual-card.two{
+        left:0;
+    }
+
+    .visual-card.three{
+        left:50%;
+        transform:translateX(-50%);
+    }
+
+    .section-title{
+        align-items:start;
+        gap:10px;
+        flex-direction:column;
+    }
+
+    .cta{
+        padding:40px 20px;
+    }
+
+    .cta h2{
+        font-size:25px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+<span class="logo-icon">N</span>
+NEXORA
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">خانه</a>
+<a href="#projects">پروژه‌ها</a>
+<a href="#market">بازار</a>
+<a href="#categories">دسته‌بندی‌ها</a>
+<a href="#subscriptions">اشتراک‌ها</a>
+<a href="#about">درباره ما</a>
+
+</div>
+
+<div class="auth-buttons">
+
+<a href="login.html" class="login-btn">
+ورود
+</a>
+
+<a href="register.html" class="register-btn">
+ثبت‌نام
+</a>
+
+</div>
+
+<button class="menu-btn" onclick="toggleMenu()">
+☰
+</button>
+
+</nav>
+
+
+<!-- MOBILE MENU -->
+
+<div id="mobileMenu" style="
+display:none;
+position:fixed;
+top:74px;
+right:4%;
+left:4%;
+z-index:999;
+background:#101520;
+border:1px solid rgba(255,255,255,.08);
+border-radius:18px;
+padding:15px;
+">
+
+<a href="index.html" onclick="closeMenu()" style="display:block;padding:12px">
+خانه
+</a>
+
+<a href="#projects" onclick="closeMenu()" style="display:block;padding:12px">
+پروژه‌ها
+</a>
+
+<a href="#market" onclick="closeMenu()" style="display:block;padding:12px">
+بازار
+</a>
+
+<a href="#categories" onclick="closeMenu()" style="display:block;padding:12px">
+دسته‌بندی‌ها
+</a>
+
+<a href="#subscriptions" onclick="closeMenu()" style="display:block;padding:12px">
+اشتراک‌ها
+</a>
+
+</div>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-badge">
+✦ نسل جدید بازار خدمات دیجیتال
+</div>
+
+<h1>
+ایده‌ات را
+<span>به واقعیت تبدیل کن.</span>
+</h1>
+
+<p class="hero-description">
+در Nexora می‌توانی پروژه بسازی، متخصص پیدا کنی،
+خدمات دیجیتال ارائه بدهی و محصولات دیجیتال خودت را به فروش برسانی.
+</p>
+
+
+<div class="search-box">
+
+<input
+id="searchInput"
+type="text"
+placeholder="چه چیزی نیاز داری؟ مثلاً طراحی سایت، لوگو یا برنامه‌نویسی..."
+>
+
+<button onclick="searchSite()">
+جستجو
+</button>
+
+</div>
+
+
+<div class="hero-buttons">
+
+<a href="register.html" class="primary-btn">
+🚀 شروع فعالیت
+</a>
+
+<a href="#projects" class="secondary-btn">
+مشاهده پروژه‌ها
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-visual">
+
+<div class="glow"></div>
+
+<div class="visual-card one">
+
+<div class="visual-icon">💻</div>
+
+<h3>پروژه جدید</h3>
+
+<p>
+یک متخصص حرفه‌ای برای پروژه خود پیدا کن.
+</p>
+
+</div>
+
+
+<div class="visual-card two">
+
+<div class="visual-icon">🤖</div>
+
+<h3>هوش مصنوعی</h3>
+
+<p>
+خدمات و ابزارهای هوش مصنوعی.
+</p>
+
+</div>
+
+
+<div class="visual-card three">
+
+<div class="visual-icon">🎨</div>
+
+<h3>طراحی</h3>
+
+<p>
+ایده‌های خلاقانه برای برند شما.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="section" id="categories">
+
+<div class="section-title">
+
+<div>
+<h2>دسته‌بندی‌ها</h2>
+<p>خدمات مورد نیازت را سریع پیدا کن.</p>
+</div>
+
+</div>
+
+
+<div class="categories">
+
+<a class="category" href="#projects">
+<div class="category-icon">🌐</div>
+<h3>طراحی سایت</h3>
+<p>وب‌سایت و فروشگاه اینترنتی</p>
+</a>
+
+<a class="category" href="#projects">
+<div class="category-icon">📱</div>
+<h3>اپلیکیشن</h3>
+<p>ساخت اپلیکیشن موبایل</p>
+</a>
+
+<a class="category" href="#projects">
+<div class="category-icon">🎮</div>
+<h3>بازی</h3>
+<p>طراحی و توسعه بازی</p>
+</a>
+
+<a class="category" href="#projects">
+<div class="category-icon">🎨</div>
+<h3>گرافیک</h3>
+<p>لوگو، بنر و طراحی</p>
+</a>
+
+<a class="category" href="#projects">
+<div class="category-icon">🤖</div>
+<h3>هوش مصنوعی</h3>
+<p>API و ابزارهای AI</p>
+</a>
+
+<a class="category" href="#projects">
+<div class="category-icon">💻</div>
+<h3>برنامه‌نویسی</h3>
+<p>توسعه نرم‌افزار</p>
+</a>
+
+<a class="category" href="#projects">
+<div class="category-icon">🎬</div>
+<h3>تولید محتوا</h3>
+<p>ویدیو و محتوای دیجیتال</p>
+</a>
+
+<a class="category" href="#projects">
+<div class="category-icon">📢</div>
+<h3>دیجیتال مارکتینگ</h3>
+<p>رشد و تبلیغات آنلاین</p>
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section class="section" id="projects">
+
+<div class="section-title">
+
+<div>
+<h2>پروژه‌های محبوب</h2>
+<p>نمونه‌ای از پروژه‌های موجود در Nexora</p>
+</div>
+
+<a href="create-project.html" class="view-all">
+ثبت پروژه ←
+</a>
+
+</div>
+
+
+<div class="cards">
+
+<div class="project-card">
+
+<div class="project-image">
+🎨
+</div>
+
+<div class="project-body">
+
+<h3>طراحی لوگوی حرفه‌ای</h3>
+
+<p>
+طراحی لوگوی مدرن برای یک برند تکنولوژی.
+</p>
+
+<div class="project-footer">
+
+<span class="price">
+شروع از ۵۰۰ هزار تومان
+</span>
+
+<span class="more">
+مشاهده
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="project-card">
+
+<div class="project-image">
+🌐
+</div>
+
+<div class="project-body">
+
+<h3>طراحی Landing Page</h3>
+
+<p>
+ساخت صفحه فرود مدرن و واکنش‌گرا.
+</p>
+
+<div class="project-footer">
+
+<span class="price">
+شروع از ۱ میلیون تومان
+</span>
+
+<span class="more">
+مشاهده
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="project-card">
+
+<div class="project-image">
+🤖
+</div>
+
+<div class="project-body">
+
+<h3>اتصال API هوش مصنوعی</h3>
+
+<p>
+اتصال سرویس هوش مصنوعی به سایت یا اپلیکیشن.
+</p>
+
+<div class="project-footer">
+
+<span class="price">
+شروع از ۸۰۰ هزار تومان
+</span>
+
+<span class="more">
+مشاهده
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= MARKET ================= -->
+
+<section class="section" id="market">
+
+<div class="section-title">
+
+<div>
+<h2>🛒 بازار دیجیتال</h2>
+<p>محصولات آماده و فایل‌های دیجیتال</p>
+</div>
+
+</div>
+
+
+<div class="cards">
+
+<div class="project-card">
+
+<div class="project-image">
+🌐
+</div>
+
+<div class="project-body">
+
+<h3>قالب سایت شرکتی</h3>
+
+<p>
+قالب آماده و مدرن برای سایت‌های شرکتی.
+</p>
+
+<div class="project-footer">
+
+<span class="price">
+۱۹۹ هزار تومان
+</span>
+
+<span class="more">
+خرید
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="project-card">
+
+<div class="project-image">
+🎮
+</div>
+
+<div class="project-body">
+
+<h3>پروژه بازی موبایل</h3>
+
+<p>
+پروژه آماده بازی برای توسعه بیشتر.
+</p>
+
+<div class="project-footer">
+
+<span class="price">
+۴۹۹ هزار تومان
+</span>
+
+<span class="more">
+مشاهده
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="project-card">
+
+<div class="project-image">
+🤖
+</div>
+
+<div class="project-body">
+
+<h3>ابزار هوش مصنوعی</h3>
+
+<p>
+ابزار آماده برای استفاده در پروژه‌های دیجیتال.
+</p>
+
+<div class="project-footer">
+
+<span class="price">
+۳۹۹ هزار تومان
+</span>
+
+<span class="more">
+خرید
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SECURITY ================= -->
+
+<section class="section" id="about">
+
+<div class="section-title">
+
+<div>
+<h2>🛡️ چرا Nexora؟</h2>
+<p>ساخته شده برای تجربه بهتر در پروژه‌های دیجیتال.</p>
+</div>
+
+</div>
+
+
+<div class="security">
+
+<div class="security-card">
+
+<div class="icon">🔐</div>
+
+<h3>امنیت</h3>
+
+<p>
+محیط امن‌تر برای ارتباط و مدیریت پروژه.
+</p>
+
+</div>
+
+
+<div class="security-card">
+
+<div class="icon">💬</div>
+
+<h3>پیام‌رسانی</h3>
+
+<p>
+ارتباط مستقیم بین کارفرما و متخصص.
+</p>
+
+</div>
+
+
+<div class="security-card">
+
+<div class="icon">⭐</div>
+
+<h3>امتیازدهی</h3>
+
+<p>
+مشاهده امتیاز و سابقه کاربران.
+</p>
+
+</div>
+
+
+<div class="security-card">
+
+<div class="icon">⚖️</div>
+
+<h3>رسیدگی</h3>
+
+<p>
+امکان گزارش و بررسی مشکلات پروژه.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SUBSCRIPTIONS ================= -->
+
+<section class="cta" id="subscriptions">
+
+<h2>
+👑 Nexora Plus
+</h2>
+
+<p>
+با اشتراک ویژه، امکانات بیشتری برای حساب خود فعال کن.
+</p>
+
+<a href="register.html">
+شروع کنید
+</a>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-inner">
+
+<div>
+
+<div class="footer-logo">
+NEXORA
+</div>
+
+<p style="margin-top:8px">
+بازار حرفه‌ای خدمات و محصولات دیجیتال.
+</p>
+
+</div>
+
+
+<div class="footer-links">
+
+<a href="index.html">
+خانه
+</a>
+
+<a href="login.html">
+ورود
+</a>
+
+<a href="register.html">
+ثبت‌نام
+</a>
+
+<a href="profile.html">
+پروفایل
+</a>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+
+const menu =
+document.getElementById("mobileMenu");
+
+menu.style.display =
+menu.style.display === "block"
+? "none"
+: "block";
+
+}
+
+function closeMenu(){
+
+document.getElementById("mobileMenu")
+.style.display="none";
+
+}
+
+
+/* SEARCH */
+
+function searchSite(){
+
+const input =
+document.getElementById("searchInput");
+
+const query =
+input.value.trim();
+
+if(!query){
+
+alert("🔎 لطفاً چیزی برای جستجو وارد کنید.");
+
+return;
+
+}
+
+alert(
+"🔎 جستجو برای «" +
+query +
+"» در نسخه بعدی به سیستم جستجوی Nexora متصل می‌شود."
+);
+
+}
+
+
+/* REVEAL ANIMATION */
+
+const elements =
+document.querySelectorAll(
+".category,.project-card,.security-card,.visual-card"
+);
+
+const observer =
+new IntersectionObserver(
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+entry.target.style.transform="translateY(0)";
+
+}
+
+});
+
+},
+{threshold:.1}
+);
+
+elements.forEach(el=>{
+
+el.style.opacity="0";
+el.style.transform="translateY(20px)";
+el.style.transition=".6s";
+
+observer.observe(el);
+
+});
+
+</script>
+
+</body>
+    </html>
