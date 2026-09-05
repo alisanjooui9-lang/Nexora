@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>جزئیات پروژه | Nexora</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Tahoma,Arial,sans-serif;
+}
+
+body{
+    background:#070b14;
+    color:#fff;
+    min-height:100vh;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+textarea{
+    font-family:inherit;
+}
+
+.navbar{
+    height:72px;
+    background:rgba(8,13,24,.94);
+    border-bottom:1px solid #182238;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter:blur(14px);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:.5px;
+}
+
+.logo span{
+    color:#6c63ff;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links a{
+    color:#aeb7ca;
+    font-size:14px;
+    transition:.2s;
+}
+
+.nav-links a:hover{
+    color:#fff;
+}
+
+.nav-actions{
+    display:flex;
+    gap:10px;
+}
+
+.btn{
+    border:0;
+    border-radius:12px;
+    padding:11px 17px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.btn-primary{
+    background:#6c63ff;
+    color:white;
+}
+
+.btn-primary:hover{
+    background:#8179ff;
+    transform:translateY(-1px);
+}
+
+.btn-secondary{
+    background:#121a2b;
+    border:1px solid #24304a;
+    color:#fff;
+}
+
+.btn-secondary:hover{
+    background:#18233a;
+}
+
+.menu-btn{
+    display:none;
+    background:#121a2b;
+    border:1px solid #25314a;
+    color:#fff;
+    width:42px;
+    height:42px;
+    border-radius:11px;
+    font-size:20px;
+}
+
+/* PAGE */
+
+.container{
+    width:88%;
+    max-width:1250px;
+    margin:auto;
+}
+
+.breadcrumb{
+    padding:28px 0 18px;
+    color:#7f8ba3;
+    font-size:13px;
+}
+
+.breadcrumb a{
+    color:#9ba7bc;
+}
+
+.breadcrumb a:hover{
+    color:#fff;
+}
+
+.layout{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 340px;
+    gap:25px;
+    padding-bottom:60px;
+}
+
+/* MAIN */
+
+.main-card,
+.side-card{
+    background:linear-gradient(145deg,#0d1422,#0a101b);
+    border:1px solid #1b2941;
+    border-radius:22px;
+    box-shadow:0 15px 50px rgba(0,0,0,.18);
+}
+
+.main-card{
+    padding:32px;
+}
+
+.project-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+}
+
+.category{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    background:#151d31;
+    color:#9faaff;
+    border:1px solid #29365a;
+    border-radius:30px;
+    padding:8px 13px;
+    font-size:12px;
+    margin-bottom:17px;
+}
+
+h1{
+    font-size:32px;
+    line-height:1.5;
+    margin-bottom:12px;
+}
+
+.project-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    color:#8794aa;
+    font-size:13px;
+}
+
+.status{
+    background:#102b22;
+    color:#52e0a5;
+    border:1px solid #1d5a45;
+    border-radius:30px;
+    padding:8px 14px;
+    font-size:12px;
+    white-space:nowrap;
+}
+
+.divider{
+    height:1px;
+    background:#1a263b;
+    margin:30px 0;
+}
+
+.section{
+    margin-bottom:32px;
+}
+
+.section h2{
+    font-size:19px;
+    margin-bottom:15px;
+}
+
+.section p{
+    color:#aeb8c9;
+    line-height:2.1;
+    font-size:14px;
+}
+
+.requirements{
+    display:grid;
+    gap:10px;
+}
+
+.requirement{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    color:#b9c2d2;
+    background:#0b1220;
+    border:1px solid #17243a;
+    border-radius:12px;
+    padding:13px;
+    font-size:13px;
+}
+
+.requirement span{
+    color:#6c63ff;
+    font-size:17px;
+}
+
+.deliverables{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.deliverable{
+    background:#0b1220;
+    border:1px solid #17243a;
+    border-radius:13px;
+    padding:16px;
+    color:#b7c1d3;
+    font-size:13px;
+}
+
+/* SIDEBAR */
+
+.side-card{
+    padding:23px;
+    height:max-content;
+    position:sticky;
+    top:95px;
+}
+
+.price-title{
+    color:#8995a9;
+    font-size:12px;
+    margin-bottom:7px;
+}
+
+.price{
+    font-size:28px;
+    font-weight:900;
+    margin-bottom:20px;
+}
+
+.info-list{
+    display:grid;
+    gap:12px;
+    margin:20px 0;
+}
+
+.info-row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding-bottom:12px;
+    border-bottom:1px solid #18243a;
+    font-size:13px;
+}
+
+.info-row:last-child{
+    border-bottom:0;
+}
+
+.info-row span:first-child{
+    color:#7f8ba1;
+}
+
+.info-row span:last-child{
+    color:#d9deea;
+    font-weight:bold;
+}
+
+.side-buttons{
+    display:grid;
+    gap:10px;
+}
+
+.side-buttons .btn{
+    width:100%;
+    padding:14px;
+}
+
+.employer{
+    margin-top:23px;
+    padding-top:20px;
+    border-top:1px solid #1b2941;
+}
+
+.employer-title{
+    color:#7f8ba1;
+    font-size:12px;
+    margin-bottom:13px;
+}
+
+.user-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.avatar{
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#6c63ff,#8b5cf6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:900;
+}
+
+.user-info strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+.user-info small{
+    color:#7f8ba1;
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(8px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:500;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:570px;
+    background:#0d1422;
+    border:1px solid #26344e;
+    border-radius:22px;
+    padding:27px;
+    box-shadow:0 25px 80px rgba(0,0,0,.5);
+}
+
+.modal-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:22px;
+}
+
+.modal-head h2{
+    font-size:21px;
+}
+
+.close{
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    border:1px solid #293650;
+    background:#131d2e;
+    color:#fff;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.form-group{
+    margin-bottom:16px;
+}
+
+.form-group label{
+    display:block;
+    color:#aeb8ca;
+    font-size:13px;
+    margin-bottom:8px;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    background:#080f1b;
+    color:#fff;
+    border:1px solid #25334d;
+    border-radius:12px;
+    padding:13px;
+    outline:none;
+    transition:.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    border-color:#6c63ff;
+    box-shadow:0 0 0 3px rgba(108,99,255,.1);
+}
+
+.form-group textarea{
+    min-height:130px;
+    resize:vertical;
+    line-height:1.8;
+}
+
+.form-note{
+    color:#77849b;
+    font-size:11px;
+    line-height:1.8;
+    margin-bottom:17px;
+}
+
+.submit-btn{
+    width:100%;
+}
+
+/* ERROR */
+
+.error-box{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.error-box h1{
+    font-size:28px;
+}
+
+.error-box p{
+    color:#8794a9;
+    margin:12px 0 25px;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid #18243a;
+    padding:25px 0;
+    text-align:center;
+    color:#657187;
+    font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+    .nav-links,
+    .nav-actions{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .navbar.mobile-open{
+        height:auto;
+        padding-top:15px;
+        padding-bottom:15px;
+        flex-wrap:wrap;
+    }
+
+    .navbar.mobile-open .nav-links{
+        display:flex;
+        width:100%;
+        flex-direction:column;
+        align-items:flex-start;
+        padding-top:20px;
+        gap:17px;
+    }
+
+    .navbar.mobile-open .nav-actions{
+        display:flex;
+        width:100%;
+        margin-top:15px;
+    }
+
+    .layout{
+        grid-template-columns:1fr;
+    }
+
+    .side-card{
+        position:static;
+    }
+}
+
+@media(max-width:600px){
+    .container{
+        width:92%;
+    }
+
+    .main-card{
+        padding:21px;
+    }
+
+    h1{
+        font-size:24px;
+    }
+
+    .project-top{
+        flex-direction:column;
+    }
+
+    .deliverables{
+        grid-template-columns:1fr;
+    }
+
+    .breadcrumb{
+        padding-top:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar" id="navbar">
+
+    <a href="index.html" class="logo">
+        Nex<span>ora</span>
+    </a>
+
+    <nav class="nav-links">
+        <a href="index.html">خانه</a>
+        <a href="projects.html">پروژه‌ها</a>
+        <a href="index.html#market">بازار</a>
+        <a href="index.html#categories">دسته‌بندی‌ها</a>
+        <a href="index.html#subscriptions">اشتراک‌ها</a>
+    </nav>
+
+    <div class="nav-actions">
+        <a href="login.html" class="btn btn-secondary">ورود</a>
+        <a href="register.html" class="btn btn-primary">ثبت‌نام</a>
+    </div>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+</header>
+
+
+<main class="container">
+
+    <div class="breadcrumb">
+        <a href="index.html">خانه</a>
+        <span> ← </span>
+        <a href="projects.html">پروژه‌ها</a>
+        <span> ← جزئیات پروژه</span>
+    </div>
+
+    <div id="projectContainer"></div>
+
+</main>
+
+
+<footer>
+    © 2026 Nexora — پلتفرم حرفه‌ای خدمات و پروژه‌های دیجیتال
+</footer>
+
+
+<!-- PROPOSAL MODAL -->
+
+<div class="modal" id="proposalModal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+            <h2>ارسال پیشنهاد پروژه</h2>
+            <button class="close" id="closeModal">×</button>
+        </div>
+
+        <form id="proposalForm">
+
+            <div class="form-group">
+                <label>مبلغ پیشنهادی</label>
+                <input
+                    type="number"
+                    id="proposalAmount"
+                    placeholder="مثلاً 750000"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>زمان تحویل (روز)</label>
+                <input
+                    type="number"
+                    id="proposalDays"
+                    placeholder="مثلاً 5"
+                    min="1"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>پیام شما به کارفرما</label>
+                <textarea
+                    id="proposalMessage"
+                    placeholder="توضیح دهید چرا برای انجام این پروژه مناسب هستید..."
+                    required
+                ></textarea>
+            </div>
+
+            <div class="form-note">
+                پیشنهاد شما برای این پروژه در حساب Nexora ذخیره می‌شود.
+            </div>
+
+            <button class="btn btn-primary submit-btn" type="submit">
+                ارسال پیشنهاد 🚀
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   PROJECT DATA
+========================= */
+
+const projects = {
+
+    "طراحی لوگوی حرفه‌ای": {
+        category: "🎨 طراحی",
+        description:
+        "به یک طراح حرفه‌ای برای طراحی لوگوی مدرن و اختصاصی برای برند خود نیاز داریم. لوگو باید ساده، قابل تشخیص و مناسب استفاده در شبکه‌های اجتماعی و وب‌سایت باشد.",
+        budget: "۵۰۰ هزار تومان",
+        duration: "۳ تا ۵ روز",
+        type: "پروژه‌ای",
+        employer: "Nexora Client",
+        requirements: [
+            "داشتن نمونه‌کار طراحی لوگو",
+            "ارائه چند ایده اولیه",
+            "تحویل فایل با کیفیت بالا",
+            "ارائه نسخه مناسب برای شبکه‌های اجتماعی"
+        ],
+        deliverables: [
+            "فایل PNG با کیفیت",
+            "فایل SVG یا Vector",
+            "نسخه روشن و تیره",
+            "فایل قابل ویرایش"
+        ]
+    },
+
+    "طراحی Landing Page": {
+        category: "🌐 طراحی وب",
+        description:
+        "طراحی یک Landing Page حرفه‌ای، سریع و واکنش‌گرا برای معرفی یک محصول یا سرویس دیجیتال. طراحی باید مدرن و مناسب موبایل و دسکتاپ باشد.",
+        budget: "۱ میلیون تومان",
+        duration: "۵ تا ۷ روز",
+        type: "پروژه‌ای",
+        employer: "Nexora Client",
+        requirements: [
+            "طراحی مدرن و حرفه‌ای",
+            "ریسپانسیو بودن صفحه",
+            "کدنویسی HTML و CSS",
+            "بهینه‌سازی ظاهر برای موبایل"
+        ],
+        deliverables: [
+            "صفحه اصلی Landing",
+            "کد HTML/CSS/JS",
+            "طراحی موبایل",
+            "فایل‌های پروژه"
+        ]
+    },
+
+    "اتصال API هوش مصنوعی": {
+        category: "🤖 هوش مصنوعی",
+        description:
+        "اتصال یک API هوش مصنوعی به یک وب‌سایت موجود و ساخت رابط کاربری مناسب برای ارسال درخواست و دریافت پاسخ.",
+        budget: "۸۰۰ هزار تومان",
+        duration: "۳ تا ۶ روز",
+        type: "پروژه‌ای",
+        employer: "Nexora Client",
+        requirements: [
+            "آشنایی با JavaScript",
+            "آشنایی با REST API",
+            "مدیریت خطاهای API",
+            "رعایت نکات امنیتی"
+        ],
+        deliverables: [
+            "اتصال API",
+            "رابط کاربری",
+            "مدیریت خطا",
+            "مستندات استفاده"
+        ]
+    },
+
+    "ساخت اپلیکیشن فروشگاهی": {
+        category: "📱 اپلیکیشن",
+        description:
+        "ساخت یک اپلیکیشن فروشگاهی مدرن با صفحات محصولات، دسته‌بندی‌ها، سبد خرید و رابط کاربری مناسب.",
+        budget: "۳ میلیون تومان",
+        duration: "۱۰ تا ۲۰ روز",
+        type: "پروژه‌ای",
+        employer: "Nexora Client",
+        requirements: [
+            "طراحی رابط کاربری حرفه‌ای",
+            "صفحه محصولات",
+            "سبد خرید",
+            "ساختار قابل توسعه"
+        ],
+        deliverables: [
+            "اپلیکیشن",
+            "صفحات محصولات",
+            "سبد خرید",
+            "فایل پروژه"
+        ]
+    },
+
+    "ساخت بازی موبایل": {
+        category: "🎮 بازی",
+        description:
+        "ساخت یک بازی موبایلی ساده و سرگرم‌کننده با رابط کاربری مناسب و سیستم امتیازدهی.",
+        budget: "۲ میلیون تومان",
+        duration: "۱۰ تا ۱۵ روز",
+        type: "پروژه‌ای",
+        employer: "Nexora Client",
+        requirements: [
+            "طراحی گیم‌پلی ساده",
+            "سیستم امتیاز",
+            "رابط کاربری مناسب موبایل",
+            "اجرای روان"
+        ],
+        deliverables: [
+            "نسخه قابل اجرا",
+            "فایل پروژه",
+            "آیکون بازی",
+            "صفحات رابط کاربری"
+        ]
+    },
+
+    "توسعه ربات تلگرام": {
+        category: "💻 برنامه‌نویسی",
+        description:
+        "توسعه یک ربات تلگرام با قابلیت دریافت پیام، پردازش درخواست‌ها و ارائه پاسخ مناسب به کاربران.",
+        budget: "۱.۵ میلیون تومان",
+        duration: "۵ تا ۱۰ روز",
+        type: "پروژه‌ای",
+        employer: "Nexora Client",
+        requirements: [
+            "آشنایی با Telegram Bot API",
+            "برنامه‌نویسی",
+            "مدیریت کاربران",
+            "ساختار قابل توسعه"
+        ],
+        deliverables: [
+            "ربات تلگرام",
+            "کد پروژه",
+            "سیستم مدیریت کاربران",
+            "راهنمای اجرا"
+        ]
+    },
+
+    "تولید محتوای اینستاگرام": {
+        category: "📱 تولید محتوا",
+        description:
+        "تولید محتوای خلاقانه و منظم برای یک پیج اینستاگرامی شامل ایده‌پردازی، کپشن و محتوای تصویری.",
+        budget: "۹۰۰ هزار تومان",
+        duration: "۷ روز",
+        type: "پروژه‌ای",
+        employer: "Nexora Client",
+        requirements: [
+            "خلاقیت در تولید محتوا",
+            "توانایی ایده‌پردازی",
+            "آشنایی با شبکه‌های اجتماعی",
+            "رعایت زمان‌بندی"
+        ],
+        deliverables: [
+            "تقویم محتوا",
+            "پست‌های پیشنهادی",
+            "کپشن",
+            "ایده استوری"
+        ]
+    },
+
+    "مدیریت و رشد شبکه‌های اجتماعی": {
+        category: "📈 مارکتینگ",
+        description:
+        "مدیریت و بهبود حضور یک برند در شبکه‌های اجتماعی با تمرکز بر افزایش تعامل، نظم محتوا و رشد مخاطبان.",
+        budget: "۲.۵ میلیون تومان",
+        duration: "۳۰ روز",
+        type: "ماهانه",
+        employer: "Nexora Client",
+        requirements: [
+            "آشنایی با شبکه‌های اجتماعی",
+            "توانایی تحلیل عملکرد",
+            "برنامه‌ریزی محتوا",
+            "گزارش‌دهی منظم"
+        ],
+        deliverables: [
+            "برنامه محتوا",
+            "مدیریت انتشار",
+            "تحلیل عملکرد",
+            "گزارش ماهانه"
+        ]
+    }
+
+};
+
+
+/* =========================
+   LOAD PROJECT
+========================= */
+
+const params = new URLSearchParams(window.location.search);
+const title = params.get("title");
+
+const container = document.getElementById("projectContainer");
+
+if(!title || !projects[title]){
+
+    container.innerHTML = `
+        <div class="main-card error-box">
+            <h1>پروژه پیدا نشد 😕</h1>
+            <p>
+                این پروژه وجود ندارد یا لینک آن صحیح نیست.
+            </p>
+            <a href="projects.html" class="btn btn-primary">
+                بازگشت به پروژه‌ها
+            </a>
+        </div>
+    `;
+
+}else{
+
+    const project = projects[title];
+
+    container.innerHTML = `
+
+        <div class="layout">
+
+            <section class="main-card">
+
+                <div class="project-top">
+
+                    <div>
+
+                        <div class="category">
+                            ${project.category}
+                        </div>
+
+                        <h1>${title}</h1>
+
+                        <div class="project-meta">
+                            <span>🕒 ${project.duration}</span>
+                            <span>📁 ${project.type}</span>
+                            <span>👥 ${project.employer}</span>
+                        </div>
+
+                    </div>
+
+                    <div class="status">
+                        ● فعال
+                    </div>
+
+                </div>
+
+
+                <div class="divider"></div>
+
+
+                <div class="section">
+
+                    <h2>درباره پروژه</h2>
+
+                    <p>
+                        ${project.description}
+                    </p>
+
+                </div>
+
+
+                <div class="section">
+
+                    <h2>نیازمندی‌های پروژه</h2>
+
+                    <div class="requirements">
+
+                        ${project.requirements.map(item => `
+                            <div class="requirement">
+                                <span>✓</span>
+                                <div>${item}</div>
+                            </div>
+                        `).join("")}
+
+                    </div>
+
+                </div>
+
+
+                <div class="section">
+
+                    <h2>خروجی‌های مورد انتظار</h2>
+
+                    <div class="deliverables">
+
+                        ${project.deliverables.map(item => `
+                            <div class="deliverable">
+                                📦 ${item}
+                            </div>
+                        `).join("")}
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <aside class="side-card">
+
+                <div class="price-title">
+                    بودجه پروژه
+                </div>
+
+                <div class="price">
+                    ${project.budget}
+                </div>
+
+
+                <div class="info-list">
+
+                    <div class="info-row">
+                        <span>زمان انجام</span>
+                        <span>${project.duration}</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span>نوع همکاری</span>
+                        <span>${project.type}</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span>دسته‌بندی</span>
+                        <span>${project.category}</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span>وضعیت</span>
+                        <span>فعال</span>
+                    </div>
+
+                </div>
+
+
+                <div class="side-buttons">
+
+                    <button
+                        class="btn btn-primary"
+                        onclick="openProposal()">
+                        🚀 ارسال پیشنهاد
+                    </button>
+
+                    <button
+                        class="btn btn-secondary"
+                        onclick="startChat()">
+                        💬 شروع گفتگو
+                    </button>
+
+                </div>
+
+
+                <div class="employer">
+
+                    <div class="employer-title">
+                        کارفرما
+                    </div>
+
+                    <div class="user-box">
+
+                        <div class="avatar">
+                            N
+                        </div>
+
+                        <div class="user-info">
+                            <strong>${project.employer}</strong>
+                            <small>عضو Nexora</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+    `;
+}
+
+
+/* =========================
+   PROPOSAL
+========================= */
+
+const modal = document.getElementById("proposalModal");
+
+function openProposal(){
+
+    const currentUser =
+        JSON.parse(localStorage.getItem("nexora_current_user"));
+
+    if(!currentUser){
+
+        const goLogin = confirm(
+            "برای ارسال پیشنهاد باید وارد حساب خود شوید.\n\nورود به صفحه ورود؟"
+        );
+
+        if(goLogin){
+            window.location.href = "login.html";
+        }
+
+        return;
+    }
+
+    modal.classList.add("show");
+}
+
+
+function closeProposal(){
+    modal.classList.remove("show");
+}
+
+
+document
+.getElementById("closeModal")
+.addEventListener("click", closeProposal);
+
+
+modal.addEventListener("click", function(e){
+
+    if(e.target === modal){
+        closeProposal();
+    }
+
+});
+
+
+/* =========================
+   SUBMIT PROPOSAL
+========================= */
+
+document
+.getElementById("proposalForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const currentUser =
+        JSON.parse(localStorage.getItem("nexora_current_user"));
+
+    if(!currentUser){
+        window.location.href = "login.html";
+        return;
+    }
+
+    const amount =
+        document.getElementById("proposalAmount").value;
+
+    const days =
+        document.getElementById("proposalDays").value;
+
+    const message =
+        document.getElementById("proposalMessage").value.trim();
+
+
+    let proposals =
+        JSON.parse(localStorage.getItem("nexora_proposals")) || [];
+
+
+    const proposal = {
+
+        id: "PROP-" + Date.now(),
+
+        projectTitle: title,
+
+        userId: currentUser.id,
+
+        username: currentUser.username,
+
+        name: currentUser.name,
+
+        amount: amount,
+
+        days: days,
+
+        message: message,
+
+        status: "pending",
+
+        createdAt: new Date().toISOString()
+
+    };
+
+
+    proposals.push(proposal);
+
+    localStorage.setItem(
+        "nexora_proposals",
+        JSON.stringify(proposals)
+    );
+
+
+    alert(
+        "✅ پیشنهاد شما با موفقیت ثبت شد!"
+    );
+
+    closeProposal();
+
+    this.reset();
+
+});
+
+
+/* =========================
+   CHAT
+========================= */
+
+function startChat(){
+
+    const currentUser =
+        JSON.parse(localStorage.getItem("nexora_current_user"));
+
+    if(!currentUser){
+
+        const goLogin = confirm(
+            "برای شروع گفتگو باید وارد حساب خود شوید.\n\nورود به حساب؟"
+        );
+
+        if(goLogin){
+            window.location.href = "login.html";
+        }
+
+        return;
+    }
+
+    window.location.href =
+        "messages.html?project=" +
+        encodeURIComponent(title);
+
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+document
+.getElementById("menuBtn")
+.addEventListener("click", function(){
+
+    document
+        .getElementById("navbar")
+        .classList.toggle("mobile-open");
+
+});
+
+</script>
+
+</body>
+  </html>
