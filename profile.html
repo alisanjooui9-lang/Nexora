@@ -3,39 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>پروفایل | Nexora</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Vazirmatn",sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Vazirmatn,sans-serif}
 
 body{
     background:
-        radial-gradient(circle at 10% 10%,rgba(118,87,255,.15),transparent 30%),
-        radial-gradient(circle at 90% 20%,rgba(25,211,174,.10),transparent 25%),
-        #070a11;
+    radial-gradient(circle at 10% 10%,rgba(118,87,255,.16),transparent 30%),
+    radial-gradient(circle at 90% 20%,rgba(25,211,174,.10),transparent 25%),
+    #070a11;
     color:#fff;
     min-height:100vh;
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-/* NAVBAR */
+a{text-decoration:none;color:inherit}
 
 .navbar{
     height:72px;
     border-bottom:1px solid rgba(255,255,255,.08);
-    background:rgba(7,10,17,.75);
+    background:rgba(7,10,17,.78);
     backdrop-filter:blur(18px);
     display:flex;
     align-items:center;
@@ -62,35 +51,28 @@ a{
     display:flex;
     align-items:center;
     justify-content:center;
-    box-shadow:0 0 25px rgba(118,87,255,.35);
 }
 
 .nav-links{
     display:flex;
-    gap:25px;
+    gap:24px;
     color:#aab4c5;
     font-size:14px;
 }
 
-.nav-links a:hover{
-    color:white;
-}
+.nav-links a:hover{color:#fff}
 
 .home-btn{
-    padding:10px 17px;
+    padding:10px 16px;
     border-radius:12px;
     background:#151c2a;
     border:1px solid rgba(255,255,255,.08);
 }
 
-/* CONTAINER */
-
 .container{
     width:min(1150px,92%);
-    margin:45px auto;
+    margin:40px auto;
 }
-
-/* PROFILE HEADER */
 
 .profile-header{
     background:linear-gradient(145deg,#101520,#0c111b);
@@ -99,21 +81,7 @@ a{
     padding:30px;
     display:flex;
     align-items:center;
-    gap:25px;
-    position:relative;
-    overflow:hidden;
-}
-
-.profile-header::before{
-    content:"";
-    position:absolute;
-    width:300px;
-    height:300px;
-    background:#7657ff;
-    filter:blur(120px);
-    opacity:.12;
-    left:-100px;
-    top:-120px;
+    gap:24px;
 }
 
 .avatar{
@@ -126,13 +94,7 @@ a{
     justify-content:center;
     font-size:38px;
     font-weight:900;
-    box-shadow:0 15px 40px rgba(0,0,0,.3);
     flex-shrink:0;
-}
-
-.profile-info{
-    position:relative;
-    z-index:2;
 }
 
 .profile-info h1{
@@ -162,13 +124,11 @@ a{
 .verified{
     background:rgba(25,211,174,.12);
     color:#19d3ae;
-    border:1px solid rgba(25,211,174,.25);
 }
 
 .member{
     background:rgba(118,87,255,.12);
     color:#a894ff;
-    border:1px solid rgba(118,87,255,.25);
 }
 
 .edit-btn{
@@ -181,8 +141,6 @@ a{
     font-weight:700;
     cursor:pointer;
 }
-
-/* STATS */
 
 .stats{
     display:grid;
@@ -199,10 +157,7 @@ a{
     text-align:center;
 }
 
-.stat-icon{
-    font-size:24px;
-    margin-bottom:8px;
-}
+.stat-icon{font-size:24px;margin-bottom:8px}
 
 .stat-number{
     font-size:23px;
@@ -212,10 +167,7 @@ a{
 .stat-title{
     color:#8d98aa;
     font-size:12px;
-    margin-top:3px;
 }
-
-/* GRID */
 
 .dashboard{
     display:grid;
@@ -236,21 +188,13 @@ a{
     margin-bottom:18px;
 }
 
-/* PROJECT */
-
 .project{
     padding:15px;
     border-radius:15px;
     background:#151c2a;
-    border:1px solid rgba(255,255,255,.06);
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:10px;
-}
-
-.project:last-child{
-    margin-bottom:0;
 }
 
 .project-title{
@@ -271,8 +215,6 @@ a{
     background:rgba(25,211,174,.1);
     color:#19d3ae;
 }
-
-/* ACTIONS */
 
 .actions{
     display:grid;
@@ -304,7 +246,6 @@ a{
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:18px;
 }
 
 .action-text strong{
@@ -317,8 +258,6 @@ a{
     font-size:11px;
 }
 
-/* SUBSCRIPTION */
-
 .subscription{
     margin-top:18px;
     background:linear-gradient(135deg,#171329,#101520);
@@ -328,36 +267,21 @@ a{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:20px;
-}
-
-.subscription h2{
-    font-size:18px;
-    margin-bottom:6px;
-}
-
-.subscription p{
-    color:#929caf;
-    font-size:12px;
 }
 
 .vip-btn{
     background:linear-gradient(135deg,#7657ff,#19d3ae);
     border:0;
-    color:white;
+    color:#fff;
     padding:12px 20px;
     border-radius:13px;
     font-weight:800;
     cursor:pointer;
 }
 
-/* MOBILE */
-
 @media(max-width:800px){
 
-    .nav-links{
-        display:none;
-    }
+    .nav-links{display:none}
 
     .profile-header{
         flex-direction:column;
@@ -378,36 +302,8 @@ a{
 
     .subscription{
         flex-direction:column;
+        gap:15px;
         text-align:center;
-    }
-}
-
-@media(max-width:450px){
-
-    .container{
-        margin-top:25px;
-    }
-
-    .profile-header{
-        padding:22px;
-    }
-
-    .avatar{
-        width:85px;
-        height:85px;
-        font-size:30px;
-    }
-
-    .profile-info h1{
-        font-size:23px;
-    }
-
-    .stats{
-        gap:10px;
-    }
-
-    .stat{
-        padding:15px 8px;
     }
 }
 </style>
@@ -417,245 +313,201 @@ a{
 
 <nav class="navbar">
 
-    <a href="index.html" class="logo">
-        <span class="logo-box">N</span>
-        NEXORA
-    </a>
+<a href="index.html" class="logo">
+<span class="logo-box">N</span>
+NEXORA
+</a>
 
-    <div class="nav-links">
-        <a href="index.html">خانه</a>
-        <a href="index.html#projects">پروژه‌ها</a>
-        <a href="index.html#market">بازار</a>
-        <a href="index.html#subscriptions">اشتراک‌ها</a>
-    </div>
+<div class="nav-links">
+<a href="index.html">خانه</a>
+<a href="index.html#projects">پروژه‌ها</a>
+<a href="index.html#market">بازار</a>
+<a href="index.html#subscriptions">اشتراک‌ها</a>
+</div>
 
-    <a href="index.html" class="home-btn">← صفحه اصلی</a>
+<a href="index.html" class="home-btn">← صفحه اصلی</a>
 
 </nav>
 
-
 <main class="container">
 
-    <section class="profile-header">
+<section class="profile-header">
 
-        <div class="avatar" id="avatar">N</div>
+<div class="avatar" id="avatar">N</div>
 
-        <div class="profile-info">
+<div class="profile-info">
 
-            <h1 id="name">کاربر Nexora</h1>
+<h1 id="name">کاربر Nexora</h1>
 
-            <div class="username" id="username">@username</div>
+<div class="username" id="username">@username</div>
 
-            <div class="badges">
+<div class="badges">
 
-                <span class="badge verified" id="verifiedBadge">
-                    ✓ حساب تأیید نشده
-                </span>
+<span class="badge verified" id="verifiedBadge">
+✓ حساب تأیید نشده
+</span>
 
-                <span class="badge member">
-                    ✦ عضو Nexora
-                </span>
+<span class="badge member">
+✦ عضو Nexora
+</span>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
-        <button class="edit-btn" onclick="editProfile()">
-            ✏️ ویرایش پروفایل
-        </button>
+<button class="edit-btn" onclick="location.href='edit-profile.html'">
+✏️ ویرایش پروفایل
+</button>
 
-    </section>
-
-
-    <section class="stats">
-
-        <div class="stat">
-            <div class="stat-icon">📁</div>
-            <div class="stat-number">0</div>
-            <div class="stat-title">پروژه‌ها</div>
-        </div>
-
-        <div class="stat">
-            <div class="stat-icon">🛒</div>
-            <div class="stat-number">0</div>
-            <div class="stat-title">سفارش‌ها</div>
-        </div>
-
-        <div class="stat">
-            <div class="stat-icon">⭐</div>
-            <div class="stat-number">0.0</div>
-            <div class="stat-title">امتیاز</div>
-        </div>
-
-        <div class="stat">
-            <div class="stat-icon">💬</div>
-            <div class="stat-number">0</div>
-            <div class="stat-title">پیام‌ها</div>
-        </div>
-
-    </section>
+</section>
 
 
-    <section class="dashboard">
+<section class="stats">
 
-        <div class="card">
+<div class="stat">
+<div class="stat-icon">📁</div>
+<div class="stat-number">0</div>
+<div class="stat-title">پروژه‌ها</div>
+</div>
 
-            <h2>📁 پروژه‌های من</h2>
+<div class="stat">
+<div class="stat-icon">🛒</div>
+<div class="stat-number">0</div>
+<div class="stat-title">سفارش‌ها</div>
+</div>
 
-            <div class="project">
+<div class="stat">
+<div class="stat-icon">⭐</div>
+<div class="stat-number">0.0</div>
+<div class="stat-title">امتیاز</div>
+</div>
 
-                <div>
-                    <div class="project-title">
-                        هنوز پروژه‌ای ثبت نکرده‌اید
-                    </div>
+<div class="stat">
+<div class="stat-icon">💬</div>
+<div class="stat-number">0</div>
+<div class="stat-title">پیام‌ها</div>
+</div>
 
-                    <div class="project-type">
-                        اولین پروژه خود را در Nexora ایجاد کنید.
-                    </div>
-                </div>
-
-                <span class="status">
-                    جدید
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="card">
-
-            <h2>⚡ دسترسی سریع</h2>
-
-            <div class="actions">
-
-                <div class="action" onclick="newProject()">
-
-                    <div class="action-icon">➕</div>
-
-                    <div class="action-text">
-                        <strong>ثبت پروژه</strong>
-                        <span>پروژه جدید ایجاد کنید</span>
-                    </div>
-
-                </div>
+</section>
 
 
-                <div class="action" onclick="messages()">
+<section class="dashboard">
 
-                    <div class="action-icon">💬</div>
+<div class="card">
 
-                    <div class="action-text">
-                        <strong>پیام‌ها</strong>
-                        <span>گفتگوهای خود را ببینید</span>
-                    </div>
+<h2>📁 پروژه‌های من</h2>
 
-                </div>
+<div class="project">
 
+<div>
 
-                <div class="action" onclick="orders()">
+<div class="project-title">
+هنوز پروژه‌ای ثبت نکرده‌اید
+</div>
 
-                    <div class="action-icon">🛒</div>
+<div class="project-type">
+اولین پروژه خود را در Nexora ایجاد کنید.
+</div>
 
-                    <div class="action-text">
-                        <strong>سفارش‌های من</strong>
-                        <span>وضعیت سفارش‌ها</span>
-                    </div>
+</div>
 
-                </div>
+<span class="status">جدید</span>
 
-            </div>
+</div>
 
-        </div>
-
-    </section>
+</div>
 
 
-    <section class="subscription">
+<div class="card">
 
-        <div>
+<h2>⚡ دسترسی سریع</h2>
 
-            <h2>👑 Nexora Plus</h2>
+<div class="actions">
 
-            <p>
-                امکانات بیشتر، نمایش بهتر پروفایل و نشان ویژه.
-            </p>
+<div class="action" onclick="location.href='create-project.html'">
 
-        </div>
+<div class="action-icon">➕</div>
 
-        <button class="vip-btn" onclick="subscription()">
-            مشاهده اشتراک‌ها
-        </button>
+<div class="action-text">
+<strong>ثبت پروژه</strong>
+<span>پروژه جدید ایجاد کنید</span>
+</div>
 
-    </section>
+</div>
+
+
+<div class="action" onclick="location.href='messages.html'">
+
+<div class="action-icon">💬</div>
+
+<div class="action-text">
+<strong>پیام‌ها</strong>
+<span>گفتگوهای خود را ببینید</span>
+</div>
+
+</div>
+
+
+<div class="action" onclick="location.href='orders.html'">
+
+<div class="action-icon">🛒</div>
+
+<div class="action-text">
+<strong>سفارش‌های من</strong>
+<span>وضعیت سفارش‌ها</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="subscription">
+
+<div>
+<h2>👑 Nexora Plus</h2>
+<p>امکانات بیشتر، نمایش بهتر پروفایل و نشان ویژه.</p>
+</div>
+
+<button class="vip-btn" onclick="alert('بخش اشتراک‌ها به‌زودی فعال می‌شود')">
+مشاهده اشتراک‌ها
+</button>
+
+</section>
 
 </main>
 
 
 <script>
 
-/* LOAD USER */
-
 const userData =
-    JSON.parse(localStorage.getItem("nexora_current_user"));
+JSON.parse(localStorage.getItem("nexora_current_user"));
 
 if(!userData){
 
-    window.location.href="login.html";
+location.href="login.html";
 
 }else{
 
-    document.getElementById("name").textContent =
-        userData.name || "کاربر Nexora";
+document.getElementById("name").textContent =
+userData.name || "کاربر Nexora";
 
-    document.getElementById("username").textContent =
-        "@" + (userData.username || "user");
+document.getElementById("username").textContent =
+"@" + (userData.username || "user");
 
-    const firstLetter =
-        (userData.name || "N").charAt(0).toUpperCase();
+document.getElementById("avatar").textContent =
+(userData.name || "N").charAt(0).toUpperCase();
 
-    document.getElementById("avatar").textContent =
-        firstLetter;
+if(userData.verified === true){
 
-    if(userData.verified === true){
-
-        document.getElementById("verifiedBadge").textContent =
-            "✓ حساب تأیید شده";
-
-    }
+document.getElementById("verifiedBadge").textContent =
+"✓ حساب تأیید شده";
 
 }
-
-
-/* BUTTONS */
-
-function editProfile(){
-
-    alert("✏️ بخش ویرایش پروفایل در مرحله بعد فعال می‌شود.");
-
-}
-
-function newProject(){
-
-    alert("🚀 بخش ثبت پروژه به‌زودی فعال می‌شود.");
-
-}
-
-function messages(){
-
-    alert("💬 سیستم پیام‌رسان در مرحله بعد ساخته می‌شود.");
-
-}
-
-function orders(){
-
-    alert("🛒 بخش سفارش‌ها به‌زودی فعال می‌شود.");
-
-}
-
-function subscription(){
-
-    alert("👑 بخش Nexora Plus به‌زودی فعال می‌شود.");
 
 }
 
