@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexora | ورود</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    font-family:Vazirmatn,Tahoma,sans-serif;
+    color:#f5f7ff;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(118,87,255,.18),transparent 30%),
+        radial-gradient(circle at 80% 80%,rgba(25,211,174,.10),transparent 30%),
+        #070a11;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.container{
+    width:min(440px,100%);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    color:white;
+    text-decoration:none;
+    font-size:24px;
+    font-weight:900;
+    margin-bottom:22px;
+}
+
+.logo-icon{
+    width:46px;
+    height:46px;
+    display:grid;
+    place-items:center;
+    border-radius:14px;
+    background:linear-gradient(135deg,#7657ff,#a287ff);
+    box-shadow:0 10px 30px rgba(118,87,255,.35);
+}
+
+.card{
+    padding:30px;
+    border-radius:25px;
+    background:rgba(16,21,32,.88);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    box-shadow:0 25px 80px rgba(0,0,0,.45);
+}
+
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.header h1{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.header p{
+    color:#9aa6b8;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.form-group{
+    margin-bottom:17px;
+}
+
+label{
+    display:block;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:7px;
+    color:#dce2ed;
+}
+
+input{
+    width:100%;
+    padding:13px 14px;
+    border-radius:13px;
+    border:1px solid rgba(255,255,255,.08);
+    outline:none;
+    background:#0c111a;
+    color:white;
+    font-family:inherit;
+    font-size:13px;
+    transition:.25s;
+}
+
+input:focus{
+    border-color:#7657ff;
+    box-shadow:0 0 0 3px rgba(118,87,255,.10);
+}
+
+input::placeholder{
+    color:#596577;
+}
+
+.password-box{
+    position:relative;
+}
+
+.password-box input{
+    padding-left:48px;
+}
+
+.show-password{
+    position:absolute;
+    left:10px;
+    top:50%;
+    transform:translateY(-50%);
+    border:0;
+    background:none;
+    color:#8995a8;
+    cursor:pointer;
+    font-size:17px;
+}
+
+.options{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:5px 0 20px;
+}
+
+.remember{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    color:#8995a8;
+    font-size:11px;
+}
+
+.remember input{
+    width:15px;
+    height:15px;
+    accent-color:#7657ff;
+}
+
+.forgot{
+    color:#a895ff;
+    text-decoration:none;
+    font-size:11px;
+}
+
+.submit{
+    width:100%;
+    border:0;
+    border-radius:13px;
+    padding:14px;
+    color:white;
+    font-family:inherit;
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
+    background:linear-gradient(135deg,#7657ff,#9a7dff);
+    box-shadow:0 12px 30px rgba(118,87,255,.22);
+    transition:.25s;
+}
+
+.submit:hover{
+    transform:translateY(-2px);
+}
+
+.message{
+    display:none;
+    margin-bottom:15px;
+    padding:12px;
+    border-radius:12px;
+    font-size:12px;
+    text-align:center;
+}
+
+.message.error{
+    display:block;
+    color:#ffb5b5;
+    background:rgba(255,70,70,.08);
+    border:1px solid rgba(255,70,70,.15);
+}
+
+.message.success{
+    display:block;
+    color:#83ead7;
+    background:rgba(25,211,174,.08);
+    border:1px solid rgba(25,211,174,.15);
+}
+
+.register{
+    text-align:center;
+    color:#8995a8;
+    font-size:12px;
+    margin-top:20px;
+}
+
+.register a{
+    color:#a895ff;
+    font-weight:700;
+    text-decoration:none;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    color:#687386;
+    font-size:11px;
+    text-decoration:none;
+    margin-top:18px;
+}
+
+@media(max-width:500px){
+    .card{
+        padding:23px 18px;
+    }
+
+    .header h1{
+        font-size:25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="index.html" class="logo">
+    <span class="logo-icon">N</span>
+    NEXORA
+</a>
+
+<div class="card">
+
+<div class="header">
+    <h1>خوش برگشتی 👋</h1>
+    <p>
+        وارد حساب Nexora خودت شو و ادامه بده.
+    </p>
+</div>
+
+<div id="message" class="message"></div>
+
+<form id="loginForm">
+
+<div class="form-group">
+
+<label for="login">ایمیل یا نام کاربری</label>
+
+<input
+    id="login"
+    type="text"
+    placeholder="ایمیل یا نام کاربری"
+    autocomplete="username"
+    required
+>
+
+</div>
+
+<div class="form-group">
+
+<label for="password">رمز عبور</label>
+
+<div class="password-box">
+
+<input
+    id="password"
+    type="password"
+    placeholder="رمز عبور"
+    autocomplete="current-password"
+    required
+>
+
+<button
+    type="button"
+    class="show-password"
+    onclick="togglePassword()"
+>
+👁️
+</button>
+
+</div>
+
+</div>
+
+<div class="options">
+
+<label class="remember">
+    <input id="remember" type="checkbox">
+    مرا به خاطر بسپار
+</label>
+
+<a href="#" class="forgot" onclick="forgotPassword(event)">
+    فراموشی رمز؟
+</a>
+
+</div>
+
+<button type="submit" class="submit">
+    ورود به Nexora 🚀
+</button>
+
+</form>
+
+<div class="register">
+    حساب نداری؟
+    <a href="register.html">ثبت‌نام کن</a>
+</div>
+
+<a href="index.html" class="back">
+    ← بازگشت به صفحه اصلی
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+const form =
+    document.getElementById("loginForm");
+
+const message =
+    document.getElementById("message");
+
+function showMessage(text,type){
+
+    message.textContent = text;
+
+    message.className =
+        "message " + type;
+
+}
+
+function togglePassword(){
+
+    const input =
+        document.getElementById("password");
+
+    const button =
+        document.querySelector(".show-password");
+
+    if(input.type === "password"){
+
+        input.type = "text";
+        button.textContent = "🙈";
+
+    }else{
+
+        input.type = "password";
+        button.textContent = "👁️";
+
+    }
+
+}
+
+function forgotPassword(event){
+
+    event.preventDefault();
+
+    showMessage(
+        "بخش بازیابی رمز عبور در مرحله بعد فعال می‌شود.",
+        "error"
+    );
+
+}
+
+form.addEventListener("submit",function(event){
+
+    event.preventDefault();
+
+    const login =
+        document.getElementById("login")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const password =
+        document.getElementById("password").value;
+
+    const remember =
+        document.getElementById("remember").checked;
+
+    const users =
+        JSON.parse(
+            localStorage.getItem("nexora_users") || "[]"
+        );
+
+    const user =
+        users.find(function(item){
+
+            return (
+                item.email.toLowerCase() === login ||
+                item.username.toLowerCase() === login
+            ) && item.password === password;
+
+        });
+
+    if(!user){
+
+        showMessage(
+            "ایمیل، نام کاربری یا رمز عبور اشتباه است.",
+            "error"
+        );
+
+        return;
+    }
+
+    localStorage.setItem(
+        "nexora_current_user",
+        JSON.stringify(user)
+    );
+
+    if(remember){
+
+        localStorage.setItem(
+            "nexora_remember",
+            "true"
+        );
+
+    }else{
+
+        localStorage.removeItem(
+            "nexora_remember"
+        );
+
+    }
+
+    showMessage(
+        "ورود موفق بود! در حال انتقال... 🚀",
+        "success"
+    );
+
+    setTimeout(function(){
+
+        window.location.href =
+            "profile.html";
+
+    },1000);
+
+});
+
+</script>
+
+</body>
+</html>
