@@ -1,33 +1,21 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nexora | پروژه‌ها</title>
+<title>پروژه‌ها | Nexora</title>
 
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
-
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
-    font-family:"Vazirmatn",sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
+    font-family:Tahoma,Arial,sans-serif;
 }
 
 body{
-    background:
-        radial-gradient(circle at 10% 10%,rgba(118,87,255,.14),transparent 28%),
-        radial-gradient(circle at 90% 20%,rgba(25,211,174,.08),transparent 25%),
-        #070a11;
-
+    background:#070b14;
     color:#fff;
     min-height:100vh;
 }
@@ -37,65 +25,43 @@ a{
     color:inherit;
 }
 
-button{
+button,
+input,
+select{
     font-family:inherit;
 }
 
-/* ================= NAVBAR ================= */
-
 .navbar{
-    height:74px;
-
-    padding:0 6%;
-
+    height:72px;
+    background:rgba(8,13,24,.95);
+    border-bottom:1px solid #182238;
     display:flex;
     align-items:center;
     justify-content:space-between;
-
+    padding:0 6%;
     position:sticky;
     top:0;
-    z-index:1000;
-
-    background:rgba(7,10,17,.86);
-    backdrop-filter:blur(20px);
-
-    border-bottom:1px solid rgba(255,255,255,.07);
+    z-index:100;
+    backdrop-filter:blur(14px);
 }
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-
-    font-size:22px;
+    font-size:25px;
     font-weight:900;
 }
 
-.logo-icon{
-    width:40px;
-    height:40px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:13px;
-
-    background:linear-gradient(135deg,#7657ff,#19d3ae);
-
-    box-shadow:0 0 30px rgba(118,87,255,.3);
+.logo span{
+    color:#6c63ff;
 }
 
 .nav-links{
     display:flex;
     gap:25px;
-
-    color:#9aa6b8;
-
-    font-size:13px;
 }
 
 .nav-links a{
+    color:#aeb7ca;
+    font-size:14px;
     transition:.2s;
 }
 
@@ -103,1621 +69,951 @@ button{
     color:#fff;
 }
 
-.auth{
+.nav-actions{
     display:flex;
-    gap:9px;
+    gap:10px;
 }
 
-.login{
-    padding:10px 16px;
-
+.btn{
+    border:0;
     border-radius:12px;
-
-    background:#151c2a;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    font-size:12px;
-    font-weight:800;
+    padding:11px 17px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.2s;
 }
 
-.register{
-    padding:10px 16px;
-
-    border-radius:12px;
-
-    background:linear-gradient(135deg,#7657ff,#6345e8);
-
-    font-size:12px;
-    font-weight:800;
+.btn-primary{
+    background:#6c63ff;
+    color:#fff;
 }
 
-.menu{
+.btn-primary:hover{
+    background:#8179ff;
+    transform:translateY(-1px);
+}
+
+.btn-secondary{
+    background:#121a2b;
+    border:1px solid #26334d;
+    color:#fff;
+}
+
+.btn-secondary:hover{
+    background:#18243a;
+}
+
+.menu-btn{
     display:none;
-
+    background:#121a2b;
+    border:1px solid #25314a;
+    color:#fff;
     width:42px;
     height:42px;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:12px;
-
-    background:#151c2a;
-
-    color:#fff;
-
+    border-radius:11px;
     font-size:20px;
-
-    cursor:pointer;
 }
 
-/* ================= MOBILE MENU ================= */
+/* HERO */
 
-.mobile-menu{
-
-    display:none;
-
-    position:fixed;
-
-    top:84px;
-
-    right:4%;
-    left:4%;
-
-    z-index:999;
-
-    padding:12px;
-
-    background:#101520;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:18px;
-
-    box-shadow:0 25px 60px rgba(0,0,0,.4);
+.container{
+    width:88%;
+    max-width:1250px;
+    margin:auto;
 }
 
-.mobile-menu a{
-
-    display:block;
-
-    padding:13px;
-
-    border-radius:10px;
-
-    color:#aab4c5;
-}
-
-.mobile-menu a:hover{
-
-    background:#171f2e;
-
-    color:#fff;
-}
-
-/* ================= PAGE HEADER ================= */
-
-.header{
-
-    width:min(1200px,92%);
-
-    margin:70px auto 35px;
-
-    text-align:center;
+.hero{
+    padding:55px 0 30px;
 }
 
 .badge{
-
     display:inline-block;
-
+    background:#141b30;
+    border:1px solid #29365a;
+    color:#9fa8ff;
     padding:8px 14px;
-
-    border-radius:12px;
-
-    background:rgba(118,87,255,.1);
-
-    border:1px solid rgba(118,87,255,.2);
-
-    color:#b8adff;
-
+    border-radius:30px;
     font-size:12px;
-
-    font-weight:800;
-
-    margin-bottom:18px;
+    margin-bottom:16px;
 }
 
-.header h1{
-
-    font-size:clamp(35px,5vw,55px);
-
-    font-weight:900;
-
+.hero h1{
+    font-size:36px;
     margin-bottom:12px;
 }
 
-.header h1 span{
-
-    background:linear-gradient(90deg,#7657ff,#19d3ae);
-
-    -webkit-background-clip:text;
-
-    color:transparent;
-}
-
-.header p{
-
-    color:#8c97a9;
-
-    font-size:13px;
-
+.hero p{
+    color:#8995aa;
+    font-size:14px;
     line-height:2;
-
     max-width:650px;
-
-    margin:auto;
 }
 
-/* ================= TOOLBAR ================= */
+/* TOOLBAR */
 
 .toolbar{
-
-    width:min(1200px,92%);
-
-    margin:0 auto 35px;
-
-    padding:15px;
-
     display:flex;
-
-    align-items:center;
-
     gap:12px;
-
-    background:#101520;
-
-    border:1px solid rgba(255,255,255,.07);
-
-    border-radius:18px;
+    margin:20px 0 30px;
 }
 
-.search{
-
+.search-box{
     flex:1;
-
-    display:flex;
-
-    align-items:center;
-
-    background:#151c2a;
-
-    border:1px solid rgba(255,255,255,.07);
-
-    border-radius:13px;
-
-    padding:5px;
+    position:relative;
 }
 
-.search input{
-
-    flex:1;
-
-    min-width:0;
-
-    background:none;
-
-    border:0;
-
-    outline:0;
-
+.search-box input{
+    width:100%;
+    height:50px;
+    background:#0d1422;
+    border:1px solid #1d2a41;
+    border-radius:14px;
     color:#fff;
-
-    padding:11px 13px;
-
-    font-size:12px;
+    padding:0 17px;
+    outline:none;
 }
 
-.search input::placeholder{
-
-    color:#657083;
-}
-
-.search button{
-
-    border:0;
-
-    padding:11px 17px;
-
-    border-radius:10px;
-
-    background:linear-gradient(135deg,#7657ff,#6345e8);
-
-    color:#fff;
-
-    font-size:12px;
-
-    font-weight:800;
-
-    cursor:pointer;
+.search-box input:focus{
+    border-color:#6c63ff;
 }
 
 select{
-
-    height:44px;
-
-    padding:0 13px;
-
-    border-radius:12px;
-
-    background:#151c2a;
-
+    width:190px;
+    background:#0d1422;
+    border:1px solid #1d2a41;
     color:#fff;
-
-    border:1px solid rgba(255,255,255,.07);
-
+    border-radius:14px;
+    padding:0 14px;
     outline:none;
-
-    font-family:inherit;
-
-    font-size:12px;
 }
 
 .create-btn{
-
     white-space:nowrap;
-
-    padding:12px 17px;
-
-    border-radius:12px;
-
-    background:linear-gradient(135deg,#19d3ae,#12a98d);
-
-    font-size:12px;
-
-    font-weight:900;
 }
 
-/* ================= PROJECT GRID ================= */
+/* GRID */
 
-.projects{
-
-    width:min(1200px,92%);
-
-    margin:0 auto 100px;
-
+.projects-grid{
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:18px;
+    padding-bottom:60px;
 }
 
-/* ================= PROJECT CARD ================= */
-
-.project{
-
-    background:#101520;
-
-    border:1px solid rgba(255,255,255,.07);
-
-    border-radius:21px;
-
-    overflow:hidden;
-
+.project-card{
+    background:linear-gradient(145deg,#0d1422,#0a101b);
+    border:1px solid #1b2941;
+    border-radius:20px;
+    padding:21px;
     transition:.25s;
-
     position:relative;
+    overflow:hidden;
 }
 
-.project:hover{
-
-    transform:translateY(-6px);
-
-    border-color:rgba(118,87,255,.35);
-
-    box-shadow:0 20px 55px rgba(0,0,0,.25);
+.project-card:hover{
+    transform:translateY(-5px);
+    border-color:#303e60;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
 }
 
-.project-top{
-
-    height:165px;
-
+.card-top{
     display:flex;
-
     align-items:center;
-
-    justify-content:center;
-
-    font-size:60px;
-
-    background:
-        radial-gradient(circle at center,#7657ff25,transparent 55%),
-        #151c2a;
-
-    position:relative;
-}
-
-.status{
-
-    position:absolute;
-
-    top:13px;
-
-    right:13px;
-
-    padding:6px 9px;
-
-    border-radius:9px;
-
-    background:rgba(25,211,174,.12);
-
-    color:#19d3ae;
-
-    border:1px solid rgba(25,211,174,.2);
-
-    font-size:10px;
-
-    font-weight:800;
-}
-
-.project-body{
-
-    padding:20px;
-}
-
-.category{
-
-    display:inline-block;
-
-    padding:5px 8px;
-
-    border-radius:8px;
-
-    background:#171f2e;
-
-    color:#9faabd;
-
-    font-size:9px;
-
-    margin-bottom:10px;
-}
-
-.project h3{
-
-    font-size:15px;
-
-    margin-bottom:8px;
-}
-
-.description{
-
-    color:#818ca0;
-
-    font-size:11px;
-
-    line-height:1.9;
-
-    min-height:42px;
-}
-
-.info{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:10px;
-
-    margin-top:17px;
-}
-
-.info-box{
-
-    padding:10px;
-
-    border-radius:11px;
-
-    background:#151c2a;
-}
-
-.info-label{
-
-    color:#667286;
-
-    font-size:9px;
-
-    margin-bottom:4px;
-}
-
-.info-value{
-
-    color:#fff;
-
-    font-size:11px;
-
-    font-weight:800;
-}
-
-.project-footer{
-
-    display:flex;
-
     justify-content:space-between;
-
-    align-items:center;
-
-    margin-top:17px;
-
-    padding-top:15px;
-
-    border-top:1px solid rgba(255,255,255,.06);
-}
-
-.budget{
-
-    color:#19d3ae;
-
-    font-size:12px;
-
-    font-weight:900;
-}
-
-.view{
-
-    padding:9px 12px;
-
-    border-radius:10px;
-
-    background:#1b2231;
-
-    color:#c0c9d7;
-
-    font-size:10px;
-
-    font-weight:800;
-
-    cursor:pointer;
-
-    border:0;
-}
-
-/* ================= EMPTY ================= */
-
-.empty{
-
-    display:none;
-
-    width:min(600px,92%);
-
-    margin:60px auto 100px;
-
-    text-align:center;
-
-    padding:45px 25px;
-
-    background:#101520;
-
-    border:1px solid rgba(255,255,255,.07);
-
-    border-radius:22px;
-}
-
-.empty-icon{
-
-    font-size:45px;
-
+    gap:10px;
     margin-bottom:15px;
 }
 
-.empty h2{
-
-    font-size:20px;
-
-    margin-bottom:8px;
-}
-
-.empty p{
-
-    color:#7f8a9d;
-
-    font-size:12px;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-
-    border-top:1px solid rgba(255,255,255,.07);
-
-    padding:45px 6%;
-
-    color:#768195;
-
+.category{
+    background:#151d31;
+    color:#9fa8ff;
+    border:1px solid #29365a;
+    padding:7px 11px;
+    border-radius:30px;
     font-size:11px;
 }
 
-.footer-inner{
+.status{
+    color:#51dca1;
+    font-size:11px;
+}
 
-    width:min(1200px,100%);
+.project-card h2{
+    font-size:17px;
+    line-height:1.7;
+    margin-bottom:9px;
+}
 
-    margin:auto;
+.description{
+    color:#8995a9;
+    font-size:12px;
+    line-height:1.9;
+    min-height:47px;
+}
 
+.meta{
     display:flex;
+    gap:15px;
+    color:#758198;
+    font-size:11px;
+    margin:17px 0;
+}
 
+.bottom{
+    display:flex;
+    align-items:center;
     justify-content:space-between;
-
-    gap:30px;
+    border-top:1px solid #18243a;
+    padding-top:16px;
 }
 
-.footer-logo{
-
-    color:#fff;
-
-    font-size:18px;
-
+.price{
+    font-size:15px;
     font-weight:900;
-
-    margin-bottom:7px;
 }
 
-.footer-links{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:20px;
+.price small{
+    color:#727e94;
+    font-size:10px;
+    font-weight:normal;
 }
 
-.footer-links a:hover{
-
-    color:#fff;
+.view-btn{
+    padding:9px 13px;
+    font-size:11px;
 }
 
-/* ================= RESPONSIVE ================= */
+/* EMPTY */
 
-@media(max-width:900px){
+.empty{
+    display:none;
+    text-align:center;
+    padding:70px 20px;
+    color:#7f8ba0;
+    grid-column:1/-1;
+}
 
-    .nav-links{
+.empty-icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid #18243a;
+    padding:25px;
+    text-align:center;
+    color:#657187;
+    font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+    .projects-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:750px){
+
+    .nav-links,
+    .nav-actions{
         display:none;
     }
 
-    .auth{
-        display:none;
-    }
-
-    .menu{
+    .menu-btn{
         display:block;
     }
 
-    .projects{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .toolbar{
+    .navbar.mobile-open{
+        height:auto;
+        padding-top:15px;
+        padding-bottom:15px;
         flex-wrap:wrap;
     }
 
-    .search{
+    .navbar.mobile-open .nav-links{
+        display:flex;
         width:100%;
-        flex:auto;
+        flex-direction:column;
+        gap:17px;
+        padding-top:20px;
     }
 
-    select{
-        flex:1;
-    }
-
-    .create-btn{
-        flex:1;
-        text-align:center;
-    }
-}
-
-@media(max-width:600px){
-
-    .projects{
-        grid-template-columns:1fr;
-    }
-
-    .header{
-        margin-top:50px;
-    }
-
-    .header h1{
-        font-size:36px;
+    .navbar.mobile-open .nav-actions{
+        display:flex;
+        width:100%;
+        margin-top:15px;
     }
 
     .toolbar{
-        padding:10px;
-    }
-
-    .search{
         flex-direction:column;
-        align-items:stretch;
-        gap:5px;
     }
 
-    .search button{
+    select{
         width:100%;
-    }
-
-    select,
-    .create-btn{
-        width:100%;
-        flex:none;
-    }
-
-    .footer-inner{
-        flex-direction:column;
+        height:50px;
     }
 }
 
+@media(max-width:560px){
+
+    .container{
+        width:92%;
+    }
+
+    .hero h1{
+        font-size:27px;
+    }
+
+    .projects-grid{
+        grid-template-columns:1fr;
+    }
+
+}
 </style>
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<header class="navbar" id="navbar">
 
-<nav class="navbar">
+    <a href="index.html" class="logo">
+        Nex<span>ora</span>
+    </a>
 
-<a href="index.html" class="logo">
+    <nav class="nav-links">
+        <a href="index.html">خانه</a>
+        <a href="projects.html">پروژه‌ها</a>
+        <a href="index.html#market">بازار</a>
+        <a href="index.html#categories">دسته‌بندی‌ها</a>
+        <a href="index.html#subscriptions">اشتراک‌ها</a>
+    </nav>
 
-<span class="logo-icon">
-N
-</span>
+    <div class="nav-actions">
+        <a href="login.html" class="btn btn-secondary">ورود</a>
+        <a href="register.html" class="btn btn-primary">ثبت‌نام</a>
+    </div>
 
-<span>
-NEXORA
-</span>
+    <button class="menu-btn" id="menuBtn">
+        ☰
+    </button>
 
-</a>
+</header>
 
-<div class="nav-links">
 
-<a href="index.html">
-خانه
-</a>
+<main class="container">
 
-<a href="projects.html">
-پروژه‌ها
-</a>
+    <section class="hero">
 
-<a href="index.html#market">
-بازار
-</a>
+        <span class="badge">
+            🚀 فرصت‌های جدید
+        </span>
 
-<a href="index.html#categories">
-دسته‌بندی‌ها
-</a>
+        <h1>
+            پروژه‌های Nexora
+        </h1>
 
-<a href="index.html#subscriptions">
-اشتراک‌ها
-</a>
+        <p>
+            پروژه‌های مختلف را پیدا کنید، پیشنهاد خود را ارسال کنید
+            و مهارت‌های خود را به درآمد تبدیل کنید.
+        </p>
 
-</div>
+    </section>
 
-<div class="auth">
 
-<a href="login.html" class="login">
-ورود
-</a>
+    <section class="toolbar">
 
-<a href="register.html" class="register">
-ثبت‌نام
-</a>
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="جستجوی پروژه..."
+            >
+        </div>
 
-</div>
+        <select id="categoryFilter">
 
-<button class="menu" onclick="toggleMenu()">
-☰
-</button>
+            <option value="all">
+                همه دسته‌بندی‌ها
+            </option>
 
-</nav>
+            <option value="design">
+                🎨 طراحی
+            </option>
 
-<!-- ================= MOBILE MENU ================= -->
+            <option value="web">
+                🌐 طراحی وب
+            </option>
 
-<div class="mobile-menu" id="mobileMenu">
+            <option value="ai">
+                🤖 هوش مصنوعی
+            </option>
 
-<a href="index.html" onclick="closeMenu()">
-خانه
-</a>
+            <option value="app">
+                📱 اپلیکیشن
+            </option>
 
-<a href="projects.html" onclick="closeMenu()">
-پروژه‌ها
-</a>
+            <option value="game">
+                🎮 بازی
+            </option>
 
-<a href="index.html#market" onclick="closeMenu()">
-بازار
-</a>
+            <option value="programming">
+                💻 برنامه‌نویسی
+            </option>
 
-<a href="index.html#categories" onclick="closeMenu()">
-دسته‌بندی‌ها
-</a>
+            <option value="content">
+                📱 تولید محتوا
+            </option>
 
-<a href="index.html#subscriptions" onclick="closeMenu()">
-اشتراک‌ها
-</a>
+            <option value="marketing">
+                📈 مارکتینگ
+            </option>
 
-<a href="login.html">
-ورود
-</a>
+        </select>
 
-<a href="register.html">
-ثبت‌نام
-</a>
+        <a
+            href="create-project.html"
+            class="btn btn-primary create-btn">
+            + ثبت پروژه
+        </a>
 
-</div>
+    </section>
 
-<!-- ================= HEADER ================= -->
 
-<section class="header">
+    <section class="projects-grid" id="projectsGrid">
 
-<div class="badge">
-🚀 Nexora Projects
-</div>
 
-<h1>
-پروژه‌های
-<span>Nexora</span>
-</h1>
+        <!-- 1 -->
 
-<p>
-پروژه مورد نظرت را پیدا کن، جزئیات آن را بررسی کن
-و برای همکاری اقدام کن.
-</p>
+        <article
+            class="project-card"
+            data-category="design"
+            data-title="طراحی لوگوی حرفه‌ای">
 
-</section>
+            <div class="card-top">
 
-<!-- ================= TOOLBAR ================= -->
+                <span class="category">
+                    🎨 طراحی
+                </span>
 
-<div class="toolbar">
+                <span class="status">
+                    ● فعال
+                </span>
 
-<div class="search">
+            </div>
 
-<input
-id="searchInput"
-type="text"
-placeholder="جستجوی پروژه؛ مثلاً طراحی سایت..."
->
+            <h2>
+                طراحی لوگوی حرفه‌ای
+            </h2>
 
-<button onclick="searchProjects()">
-جستجو
-</button>
+            <p class="description">
+                طراحی یک لوگوی مدرن و اختصاصی برای یک برند دیجیتال.
+            </p>
 
-</div>
+            <div class="meta">
+                <span>⏱ ۳-۵ روز</span>
+                <span>📁 پروژه‌ای</span>
+            </div>
 
-<select id="categoryFilter" onchange="filterProjects()">
+            <div class="bottom">
 
-<option value="all">
-همه دسته‌بندی‌ها
-</option>
+                <div class="price">
+                    ۵۰۰ هزار
+                    <small>تومان</small>
+                </div>
 
-<option value="web">
-طراحی سایت
-</option>
+                <button
+                    class="btn btn-primary view-btn"
+                    onclick="showProject('طراحی لوگوی حرفه‌ای')">
+                    مشاهده پروژه
+                </button>
 
-<option value="app">
-اپلیکیشن
-</option>
+            </div>
 
-<option value="game">
-بازی
-</option>
+        </article>
 
-<option value="design">
-گرافیک
-</option>
 
-<option value="ai">
-هوش مصنوعی
-</option>
+        <!-- 2 -->
 
-<option value="programming">
-برنامه‌نویسی
-</option>
+        <article
+            class="project-card"
+            data-category="web"
+            data-title="طراحی Landing Page">
 
-<option value="content">
-تولید محتوا
-</option>
+            <div class="card-top">
 
-<option value="marketing">
-دیجیتال مارکتینگ
-</option>
+                <span class="category">
+                    🌐 طراحی وب
+                </span>
 
-</select>
+                <span class="status">
+                    ● فعال
+                </span>
 
-<a href="create-project.html" class="create-btn">
-＋ ثبت پروژه
-</a>
+            </div>
 
-</div>
+            <h2>
+                طراحی Landing Page
+            </h2>
 
-<!-- ================= PROJECTS ================= -->
+            <p class="description">
+                طراحی Landing Page حرفه‌ای و کاملاً واکنش‌گرا.
+            </p>
 
-<section class="projects" id="projects">
+            <div class="meta">
+                <span>⏱ ۵-۷ روز</span>
+                <span>📁 پروژه‌ای</span>
+            </div>
 
-<!-- PROJECT 1 -->
+            <div class="bottom">
 
-<article class="project"
-data-category="design"
-data-title="طراحی لوگوی حرفه‌ای">
+                <div class="price">
+                    ۱ میلیون
+                    <small>تومان</small>
+                </div>
 
-<div class="project-top">
+                <button
+                    class="btn btn-primary view-btn"
+                    onclick="showProject('طراحی Landing Page')">
+                    مشاهده پروژه
+                </button>
 
-🎨
+            </div>
 
-<div class="status">
-در انتظار متخصص
-</div>
+        </article>
 
-</div>
 
-<div class="project-body">
+        <!-- 3 -->
 
-<span class="category">
-گرافیک
-</span>
+        <article
+            class="project-card"
+            data-category="ai"
+            data-title="اتصال API هوش مصنوعی">
 
-<h3>
-طراحی لوگوی حرفه‌ای
-</h3>
+            <div class="card-top">
 
-<p class="description">
-طراحی یک لوگوی مدرن و حرفه‌ای برای یک برند تکنولوژی.
-</p>
+                <span class="category">
+                    🤖 هوش مصنوعی
+                </span>
 
-<div class="info">
+                <span class="status">
+                    ● فعال
+                </span>
 
-<div class="info-box">
+            </div>
 
-<div class="info-label">
-زمان
-</div>
+            <h2>
+                اتصال API هوش مصنوعی
+            </h2>
 
-<div class="info-value">
-۳ تا ۵ روز
-</div>
+            <p class="description">
+                اتصال API هوش مصنوعی به یک وب‌سایت موجود.
+            </p>
 
-</div>
+            <div class="meta">
+                <span>⏱ ۳-۶ روز</span>
+                <span>📁 پروژه‌ای</span>
+            </div>
 
-<div class="info-box">
+            <div class="bottom">
 
-<div class="info-label">
-نوع
-</div>
+                <div class="price">
+                    ۸۰۰ هزار
+                    <small>تومان</small>
+                </div>
 
-<div class="info-value">
-فریلنسری
-</div>
+                <button
+                    class="btn btn-primary view-btn"
+                    onclick="showProject('اتصال API هوش مصنوعی')">
+                    مشاهده پروژه
+                </button>
 
-</div>
+            </div>
 
-</div>
+        </article>
 
-<div class="project-footer">
 
-<span class="budget">
-۵۰۰ هزار تومان
-</span>
+        <!-- 4 -->
 
-<button class="view"
-onclick="showProject('طراحی لوگوی حرفه‌ای')">
-مشاهده پروژه
-</button>
+        <article
+            class="project-card"
+            data-category="app"
+            data-title="ساخت اپلیکیشن فروشگاهی">
 
-</div>
+            <div class="card-top">
 
-</div>
+                <span class="category">
+                    📱 اپلیکیشن
+                </span>
 
-</article>
+                <span class="status">
+                    ● فعال
+                </span>
 
+            </div>
 
-<!-- PROJECT 2 -->
+            <h2>
+                ساخت اپلیکیشن فروشگاهی
+            </h2>
 
-<article class="project"
-data-category="web"
-data-title="طراحی Landing Page">
+            <p class="description">
+                ساخت اپلیکیشن فروشگاهی مدرن با صفحات محصولات و سبد خرید.
+            </p>
 
-<div class="project-top">
+            <div class="meta">
+                <span>⏱ ۱۰-۲۰ روز</span>
+                <span>📁 پروژه‌ای</span>
+            </div>
 
-🌐
+            <div class="bottom">
 
-<div class="status">
-در انتظار متخصص
-</div>
+                <div class="price">
+                    ۳ میلیون
+                    <small>تومان</small>
+                </div>
 
-</div>
+                <button
+                    class="btn btn-primary view-btn"
+                    onclick="showProject('ساخت اپلیکیشن فروشگاهی')">
+                    مشاهده پروژه
+                </button>
 
-<div class="project-body">
+            </div>
 
-<span class="category">
-طراحی سایت
-</span>
+        </article>
 
-<h3>
-طراحی Landing Page
-</h3>
 
-<p class="description">
-ساخت یک صفحه فرود مدرن، سریع و کاملاً واکنش‌گرا.
-</p>
+        <!-- 5 -->
 
-<div class="info">
+        <article
+            class="project-card"
+            data-category="game"
+            data-title="ساخت بازی موبایل">
 
-<div class="info-box">
+            <div class="card-top">
 
-<div class="info-label">
-زمان
-</div>
+                <span class="category">
+                    🎮 بازی
+                </span>
 
-<div class="info-value">
-۲ تا ۴ روز
-</div>
+                <span class="status">
+                    ● فعال
+                </span>
 
-</div>
+            </div>
 
-<div class="info-box">
+            <h2>
+                ساخت بازی موبایل
+            </h2>
 
-<div class="info-label">
-نوع
-</div>
+            <p class="description">
+                ساخت یک بازی موبایلی سرگرم‌کننده با سیستم امتیازدهی.
+            </p>
 
-<div class="info-value">
-پروژه
-</div>
+            <div class="meta">
+                <span>⏱ ۱۰-۱۵ روز</span>
+                <span>📁 پروژه‌ای</span>
+            </div>
 
-</div>
+            <div class="bottom">
 
-</div>
+                <div class="price">
+                    ۲ میلیون
+                    <small>تومان</small>
+                </div>
 
-<div class="project-footer">
+                <button
+                    class="btn btn-primary view-btn"
+                    onclick="showProject('ساخت بازی موبایل')">
+                    مشاهده پروژه
+                </button>
 
-<span class="budget">
-۱ میلیون تومان
-</span>
+            </div>
 
-<button class="view"
-onclick="showProject('طراحی Landing Page')">
-مشاهده پروژه
-</button>
+        </article>
 
-</div>
 
-</div>
+        <!-- 6 -->
 
-</article>
+        <article
+            class="project-card"
+            data-category="programming"
+            data-title="توسعه ربات تلگرام">
 
+            <div class="card-top">
 
-<!-- PROJECT 3 -->
+                <span class="category">
+                    💻 برنامه‌نویسی
+                </span>
 
-<article class="project"
-data-category="ai"
-data-title="اتصال API هوش مصنوعی">
+                <span class="status">
+                    ● فعال
+                </span>
 
-<div class="project-top">
+            </div>
 
-🤖
+            <h2>
+                توسعه ربات تلگرام
+            </h2>
 
-<div class="status">
-فوری
-</div>
+            <p class="description">
+                توسعه ربات تلگرام برای مدیریت کاربران و پردازش درخواست‌ها.
+            </p>
 
-</div>
+            <div class="meta">
+                <span>⏱ ۵-۱۰ روز</span>
+                <span>📁 پروژه‌ای</span>
+            </div>
 
-<div class="project-body">
+            <div class="bottom">
 
-<span class="category">
-هوش مصنوعی
-</span>
+                <div class="price">
+                    ۱.۵ میلیون
+                    <small>تومان</small>
+                </div>
 
-<h3>
-اتصال API هوش مصنوعی
-</h3>
+                <button
+                    class="btn btn-primary view-btn"
+                    onclick="showProject('توسعه ربات تلگرام')">
+                    مشاهده پروژه
+                </button>
 
-<p class="description">
-اتصال یک سرویس هوش مصنوعی به سایت یا اپلیکیشن.
-</p>
+            </div>
 
-<div class="info">
+        </article>
 
-<div class="info-box">
 
-<div class="info-label">
-زمان
-</div>
+        <!-- 7 -->
 
-<div class="info-value">
-۱ تا ۳ روز
-</div>
+        <article
+            class="project-card"
+            data-category="content"
+            data-title="تولید محتوای اینستاگرام">
 
-</div>
+            <div class="card-top">
 
-<div class="info-box">
+                <span class="category">
+                    📱 تولید محتوا
+                </span>
 
-<div class="info-label">
-نوع
-</div>
+                <span class="status">
+                    ● فعال
+                </span>
 
-<div class="info-value">
-توسعه
-</div>
+            </div>
 
-</div>
+            <h2>
+                تولید محتوای اینستاگرام
+            </h2>
 
-</div>
+            <p class="description">
+                تولید محتوای خلاقانه برای رشد و مدیریت یک پیج اینستاگرامی.
+            </p>
 
-<div class="project-footer">
+            <div class="meta">
+                <span>⏱ ۷ روز</span>
+                <span>📁 پروژه‌ای</span>
+            </div>
 
-<span class="budget">
-۸۰۰ هزار تومان
-</span>
+            <div class="bottom">
 
-<button class="view"
-onclick="showProject('اتصال API هوش مصنوعی')">
-مشاهده پروژه
-</button>
+                <div class="price">
+                    ۹۰۰ هزار
+                    <small>تومان</small>
+                </div>
 
-</div>
+                <button
+                    class="btn btn-primary view-btn"
+                    onclick="showProject('تولید محتوای اینستاگرام')">
+                    مشاهده پروژه
+                </button>
 
-</div>
+            </div>
 
-</article>
+        </article>
 
 
-<!-- PROJECT 4 -->
+        <!-- 8 -->
 
-<article class="project"
-data-category="app"
-data-title="ساخت اپلیکیشن فروشگاهی">
+        <article
+            class="project-card"
+            data-category="marketing"
+            data-title="مدیریت و رشد شبکه‌های اجتماعی">
 
-<div class="project-top">
+            <div class="card-top">
 
-📱
+                <span class="category">
+                    📈 مارکتینگ
+                </span>
 
-<div class="status">
-جدید
-</div>
+                <span class="status">
+                    ● فعال
+                </span>
 
-</div>
+            </div>
 
-<div class="project-body">
+            <h2>
+                مدیریت و رشد شبکه‌های اجتماعی
+            </h2>
 
-<span class="category">
-اپلیکیشن
-</span>
+            <p class="description">
+                مدیریت شبکه‌های اجتماعی و افزایش تعامل و رشد مخاطبان.
+            </p>
 
-<h3>
-ساخت اپلیکیشن فروشگاهی
-</h3>
+            <div class="meta">
+                <span>⏱ ۳۰ روز</span>
+                <span>📁 ماهانه</span>
+            </div>
 
-<p class="description">
-ساخت اپلیکیشن موبایل برای یک فروشگاه اینترنتی.
-</p>
+            <div class="bottom">
 
-<div class="info">
+                <div class="price">
+                    ۲.۵ میلیون
+                    <small>تومان</small>
+                </div>
 
-<div class="info-box">
+                <button
+                    class="btn btn-primary view-btn"
+                    onclick="showProject('مدیریت و رشد شبکه‌های اجتماعی')">
+                    مشاهده پروژه
+                </button>
 
-<div class="info-label">
-زمان
-</div>
+            </div>
 
-<div class="info-value">
-۷ تا ۱۴ روز
-</div>
+        </article>
 
-</div>
 
-<div class="info-box">
+        <div class="empty" id="emptyState">
 
-<div class="info-label">
-نوع
-</div>
+            <div class="empty-icon">
+                🔍
+            </div>
 
-<div class="info-value">
-موبایل
-</div>
+            پروژه‌ای با این مشخصات پیدا نشد.
 
-</div>
+        </div>
 
-</div>
+    </section>
 
-<div class="project-footer">
+</main>
 
-<span class="budget">
-۳ میلیون تومان
-</span>
-
-<button class="view"
-onclick="showProject('ساخت اپلیکیشن فروشگاهی')">
-مشاهده پروژه
-</button>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- PROJECT 5 -->
-
-<article class="project"
-data-category="game"
-data-title="ساخت بازی موبایل">
-
-<div class="project-top">
-
-🎮
-
-<div class="status">
-جدید
-</div>
-
-</div>
-
-<div class="project-body">
-
-<span class="category">
-بازی
-</span>
-
-<h3>
-ساخت بازی موبایل
-</h3>
-
-<p class="description">
-توسعه یک بازی موبایلی سبک و جذاب برای اندروید.
-</p>
-
-<div class="info">
-
-<div class="info-box">
-
-<div class="info-label">
-زمان
-</div>
-
-<div class="info-value">
-۱۰ روز
-</div>
-
-</div>
-
-<div class="info-box">
-
-<div class="info-label">
-نوع
-</div>
-
-<div class="info-value">
-اندروید
-</div>
-
-</div>
-
-</div>
-
-<div class="project-footer">
-
-<span class="budget">
-۲ میلیون تومان
-</span>
-
-<button class="view"
-onclick="showProject('ساخت بازی موبایل')">
-مشاهده پروژه
-</button>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- PROJECT 6 -->
-
-<article class="project"
-data-category="programming"
-data-title="توسعه ربات تلگرام">
-
-<div class="project-top">
-
-💻
-
-<div class="status">
-در انتظار متخصص
-</div>
-
-</div>
-
-<div class="project-body">
-
-<span class="category">
-برنامه‌نویسی
-</span>
-
-<h3>
-توسعه ربات تلگرام
-</h3>
-
-<p class="description">
-ساخت ربات حرفه‌ای برای مدیریت سفارش‌ها و کاربران.
-</p>
-
-<div class="info">
-
-<div class="info-box">
-
-<div class="info-label">
-زمان
-</div>
-
-<div class="info-value">
-۳ تا ۷ روز
-</div>
-
-</div>
-
-<div class="info-box">
-
-<div class="info-label">
-نوع
-</div>
-
-<div class="info-value">
-ربات
-</div>
-
-</div>
-
-</div>
-
-<div class="project-footer">
-
-<span class="budget">
-۱.۵ میلیون تومان
-</span>
-
-<button class="view"
-onclick="showProject('توسعه ربات تلگرام')">
-مشاهده پروژه
-</button>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- PROJECT 7 -->
-
-<article class="project"
-data-category="content"
-data-title="تولید محتوای اینستاگرام">
-
-<div class="project-top">
-
-🎬
-
-<div class="status">
-جدید
-</div>
-
-</div>
-
-<div class="project-body">
-
-<span class="category">
-تولید محتوا
-</span>
-
-<h3>
-تولید محتوای اینستاگرام
-</h3>
-
-<p class="description">
-تولید محتوای حرفه‌ای برای صفحه یک کسب‌وکار آنلاین.
-</p>
-
-<div class="info">
-
-<div class="info-box">
-
-<div class="info-label">
-زمان
-</div>
-
-<div class="info-value">
-هفتگی
-</div>
-
-</div>
-
-<div class="info-box">
-
-<div class="info-label">
-نوع
-</div>
-
-<div class="info-value">
-محتوا
-</div>
-
-</div>
-
-</div>
-
-<div class="project-footer">
-
-<span class="budget">
-۹۰۰ هزار تومان
-</span>
-
-<button class="view"
-onclick="showProject('تولید محتوای اینستاگرام')">
-مشاهده پروژه
-</button>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- PROJECT 8 -->
-
-<article class="project"
-data-category="marketing"
-data-title="دیجیتال مارکتینگ">
-
-<div class="project-top">
-
-📢
-
-<div class="status">
-فوری
-</div>
-
-</div>
-
-<div class="project-body">
-
-<span class="category">
-دیجیتال مارکتینگ
-</span>
-
-<h3>
-مدیریت و رشد شبکه‌های اجتماعی
-</h3>
-
-<p class="description">
-برنامه‌ریزی محتوا و اجرای کمپین برای رشد یک برند.
-</p>
-
-<div class="info">
-
-<div class="info-box">
-
-<div class="info-label">
-زمان
-</div>
-
-<div class="info-value">
-۳۰ روز
-</div>
-
-</div>
-
-<div class="info-box">
-
-<div class="info-label">
-نوع
-</div>
-
-<div class="info-value">
-مارکتینگ
-</div>
-
-</div>
-
-</div>
-
-<div class="project-footer">
-
-<span class="budget">
-۲.۵ میلیون تومان
-</span>
-
-<button class="view"
-onclick="showProject('مدیریت و رشد شبکه‌های اجتماعی')">
-مشاهده پروژه
-</button>
-
-</div>
-
-</div>
-
-</article>
-
-</section>
-
-<!-- ================= EMPTY ================= -->
-
-<div class="empty" id="empty">
-
-<div class="empty-icon">
-🔍
-</div>
-
-<h2>
-پروژه‌ای پیدا نشد
-</h2>
-
-<p>
-عبارت جستجو یا دسته‌بندی دیگری را امتحان کن.
-</p>
-
-</div>
-
-<!-- ================= FOOTER ================= -->
 
 <footer>
-
-<div class="footer-inner">
-
-<div>
-
-<div class="footer-logo">
-NEXORA
-</div>
-
-<p>
-بازار حرفه‌ای خدمات و محصولات دیجیتال.
-</p>
-
-</div>
-
-<div class="footer-links">
-
-<a href="index.html">
-خانه
-</a>
-
-<a href="projects.html">
-پروژه‌ها
-</a>
-
-<a href="login.html">
-ورود
-</a>
-
-<a href="register.html">
-ثبت‌نام
-</a>
-
-<a href="profile.html">
-پروفایل
-</a>
-
-</div>
-
-</div>
-
+    © 2026 Nexora — پلتفرم حرفه‌ای خدمات و پروژه‌های دیجیتال
 </footer>
+
 
 <script>
 
-/* ================= MOBILE MENU ================= */
-
-function toggleMenu(){
-
-const menu=document.getElementById("mobileMenu");
-
-menu.style.display=
-menu.style.display==="block"
-?"none"
-:"block";
-
-}
-
-function closeMenu(){
-
-document.getElementById("mobileMenu").style.display="none";
-
-}
-
-
-/* ================= SEARCH ================= */
-
-function searchProjects(){
-
-filterProjects();
-
-}
-
-
-/* ================= FILTER ================= */
-
-function filterProjects(){
-
-const query=
-document.getElementById("searchInput")
-.value
-.trim()
-.toLowerCase();
-
-const category=
-document.getElementById("categoryFilter")
-.value;
-
-const projects=
-document.querySelectorAll(".project");
-
-let visible=0;
-
-projects.forEach(function(project){
-
-const title=
-project.dataset.title.toLowerCase();
-
-const projectCategory=
-project.dataset.category;
-
-const matchesSearch=
-title.includes(query);
-
-const matchesCategory=
-category==="all" ||
-projectCategory===category;
-
-if(matchesSearch && matchesCategory){
-
-project.style.display="block";
-
-visible++;
-
-}else{
-
-project.style.display="none";
-
-}
-
-});
-
-const empty=
-document.getElementById("empty");
-
-if(visible===0){
-
-empty.style.display="block";
-
-}else{
-
-empty.style.display="none";
-
-}
-
-}
-
-
-/* ================= PROJECT VIEW ================= */
+/* =========================
+   OPEN PROJECT DETAILS
+========================= */
 
 function showProject(title){
 
-alert(
-"📁 پروژه:\n\n"+
-title+
-"\n\nصفحه جزئیات پروژه در مرحله بعدی Nexora ساخته می‌شود."
-);
+    window.location.href =
+        "project-details.html?title=" +
+        encodeURIComponent(title);
 
 }
+
+
+/* =========================
+   SEARCH + FILTER
+========================= */
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const categoryFilter =
+    document.getElementById("categoryFilter");
+
+const cards =
+    document.querySelectorAll(".project-card");
+
+const emptyState =
+    document.getElementById("emptyState");
+
+
+function filterProjects(){
+
+    const search =
+        searchInput.value
+        .trim()
+        .toLowerCase();
+
+    const category =
+        categoryFilter.value;
+
+    let visible = 0;
+
+
+    cards.forEach(card => {
+
+        const title =
+            card.dataset.title.toLowerCase();
+
+        const cardCategory =
+            card.dataset.category;
+
+
+        const matchSearch =
+            title.includes(search);
+
+        const matchCategory =
+            category === "all" ||
+            cardCategory === category;
+
+
+        if(matchSearch && matchCategory){
+
+            card.style.display = "block";
+            visible++;
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+
+    emptyState.style.display =
+        visible === 0 ? "block" : "none";
+
+}
+
+
+searchInput.addEventListener(
+    "input",
+    filterProjects
+);
+
+categoryFilter.addEventListener(
+    "change",
+    filterProjects
+);
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+document
+.getElementById("menuBtn")
+.addEventListener("click", function(){
+
+    document
+    .getElementById("navbar")
+    .classList.toggle("mobile-open");
+
+});
 
 </script>
 
 </body>
-  </html>
+</html>
