@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Nexora Plus | اشتراک‌ها</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Tahoma,Arial,sans-serif}
+
+body{
+    background:#070a12;
+    color:#fff;
+    min-height:100vh;
+}
+
+a{text-decoration:none;color:inherit}
+
+:root{
+    --primary:#7c5cff;
+    --blue:#00d4ff;
+    --green:#35e69a;
+    --red:#ff5577;
+    --muted:#8d96aa;
+    --border:rgba(255,255,255,.09);
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    top:-220px;
+    right:-150px;
+    background:rgba(124,92,255,.14);
+    filter:blur(110px);
+    border-radius:50%;
+    z-index:-1;
+}
+
+.navbar{
+    width:min(1180px,92%);
+    margin:18px auto;
+    padding:14px 18px;
+    background:rgba(12,15,25,.75);
+    backdrop-filter:blur(20px);
+    border:1px solid var(--border);
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:21px;
+    font-weight:900;
+}
+
+.logo-icon{
+    width:40px;
+    height:40px;
+    border-radius:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,var(--primary),var(--blue));
+}
+
+.nav-links{
+    display:flex;
+    gap:8px;
+}
+
+.nav-links a{
+    padding:10px 13px;
+    color:#9da5b8;
+    font-size:13px;
+    border-radius:10px;
+}
+
+.nav-links a:hover{
+    color:#fff;
+    background:rgba(255,255,255,.06);
+}
+
+.login{
+    padding:11px 17px;
+    border-radius:11px;
+    background:linear-gradient(135deg,var(--primary),#5d7dff);
+    font-size:13px;
+    font-weight:bold;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:70px auto;
+}
+
+.hero{
+    text-align:center;
+    max-width:750px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-flex;
+    padding:9px 15px;
+    border-radius:30px;
+    color:#bfb4ff;
+    background:rgba(124,92,255,.1);
+    border:1px solid rgba(124,92,255,.2);
+    font-size:12px;
+    margin-bottom:18px;
+}
+
+h1{
+    font-size:clamp(34px,6vw,58px);
+    line-height:1.2;
+    margin-bottom:18px;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#fff,#9b8cff,#45dfff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:var(--muted);
+    line-height:2;
+    font-size:14px;
+}
+
+.plans{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:55px;
+}
+
+.plan{
+    position:relative;
+    padding:30px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.035);
+    border-radius:25px;
+    transition:.25s;
+}
+
+.plan:hover{
+    transform:translateY(-6px);
+    border-color:rgba(124,92,255,.4);
+}
+
+.plan.featured{
+    border-color:rgba(124,92,255,.5);
+    background:
+        radial-gradient(circle at 50% 0,rgba(124,92,255,.14),transparent 50%),
+        rgba(255,255,255,.045);
+}
+
+.popular{
+    position:absolute;
+    top:15px;
+    left:15px;
+    padding:6px 10px;
+    border-radius:20px;
+    background:rgba(124,92,255,.15);
+    color:#b9adff;
+    font-size:10px;
+}
+
+.plan-icon{
+    font-size:32px;
+    margin-bottom:17px;
+}
+
+.plan h2{
+    font-size:21px;
+    margin-bottom:10px;
+}
+
+.plan-desc{
+    color:#7d8699;
+    font-size:12px;
+    line-height:1.8;
+    min-height:45px;
+}
+
+.price{
+    margin:25px 0;
+}
+
+.price strong{
+    font-size:28px;
+}
+
+.price span{
+    color:#737c90;
+    font-size:11px;
+}
+
+.features{
+    list-style:none;
+    margin-bottom:25px;
+}
+
+.features li{
+    padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,.05);
+    color:#aeb5c5;
+    font-size:12px;
+}
+
+.features li:before{
+    content:"✓";
+    color:var(--green);
+    margin-left:8px;
+    font-weight:bold;
+}
+
+.btn{
+    width:100%;
+    border:0;
+    cursor:pointer;
+    padding:14px;
+    border-radius:12px;
+    color:#fff;
+    background:linear-gradient(135deg,var(--primary),#5d7dff);
+    font-weight:bold;
+}
+
+.current{
+    margin-top:60px;
+    padding:25px;
+    border:1px solid var(--border);
+    border-radius:22px;
+    background:rgba(255,255,255,.035);
+}
+
+.current h3{
+    margin-bottom:15px;
+}
+
+.status{
+    display:inline-block;
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:11px;
+}
+
+.pending{
+    color:#ffd36a;
+    background:rgba(255,211,106,.1);
+}
+
+.approved{
+    color:var(--green);
+    background:rgba(53,230,154,.1);
+}
+
+.rejected{
+    color:#ff7892;
+    background:rgba(255,85,119,.1);
+}
+
+.empty{
+    color:#727b8f;
+    font-size:12px;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(8px);
+    align-items:center;
+    justify-content:center;
+    z-index:100;
+    padding:20px;
+}
+
+.modal-box{
+    width:min(480px,100%);
+    background:#10131e;
+    border:1px solid var(--border);
+    border-radius:25px;
+    padding:28px;
+}
+
+.modal-box h2{
+    margin-bottom:10px;
+}
+
+.modal-box p{
+    color:#7f889c;
+    font-size:12px;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+input,textarea{
+    width:100%;
+    background:#080b13;
+    color:#fff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:13px;
+    outline:none;
+    margin-bottom:12px;
+}
+
+textarea{
+    min-height:110px;
+    resize:vertical;
+}
+
+.modal-actions{
+    display:flex;
+    gap:10px;
+}
+
+.cancel{
+    background:#1b1f2b;
+}
+
+@media(max-width:850px){
+    .nav-links{display:none}
+    .plans{grid-template-columns:1fr}
+    .container{margin-top:45px}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+    <div class="logo-icon">N</div>
+    Nexora
+</a>
+
+<div class="nav-links">
+    <a href="index.html">خانه</a>
+    <a href="projects.html">پروژه‌ها</a>
+    <a href="market.html">بازار</a>
+    <a href="profile.html">پروفایل</a>
+</div>
+
+<a href="login.html" class="login">ورود</a>
+
+</nav>
+
+<main class="container">
+
+<section class="hero">
+
+<div class="badge">✦ NEXORA PLUS</div>
+
+<h1>
+    تجربه حرفه‌ای‌تر با
+    <span class="gradient">Nexora Plus</span>
+</h1>
+
+<p>
+    پلن مناسب خودت را انتخاب کن و درخواست فعال‌سازی
+    اشتراک را برای بررسی تیم Nexora ارسال کن.
+</p>
+
+</section>
+
+<section class="plans">
+
+<div class="plan">
+
+<div class="plan-icon">⚡</div>
+
+<h2>Starter</h2>
+
+<div class="plan-desc">
+برای شروع فعالیت حرفه‌ای در Nexora
+</div>
+
+<div class="price">
+<strong>۹۹</strong>
+<span> هزار تومان / ماه</span>
+</div>
+
+<ul class="features">
+<li>پروفایل حرفه‌ای</li>
+<li>امکانات پایه Nexora</li>
+<li>دسترسی به قابلیت‌های Plus</li>
+<li>اولویت معمولی</li>
+</ul>
+
+<button class="btn" onclick="openRequest('Starter','۹۹ هزار تومان / ماه')">
+درخواست اشتراک
+</button>
+
+</div>
+
+
+<div class="plan featured">
+
+<div class="popular">محبوب‌ترین</div>
+
+<div class="plan-icon">🚀</div>
+
+<h2>Pro</h2>
+
+<div class="plan-desc">
+برای کاربران فعال و حرفه‌ای
+</div>
+
+<div class="price">
+<strong>۱۹۹</strong>
+<span> هزار تومان / ماه</span>
+</div>
+
+<ul class="features">
+<li>تمام امکانات Starter</li>
+<li>اولویت بالاتر</li>
+<li>پروفایل حرفه‌ای‌تر</li>
+<li>قابلیت‌های ویژه</li>
+<li>بررسی نشان رسمی</li>
+</ul>
+
+<button class="btn" onclick="openRequest('Pro','۱۹۹ هزار تومان / ماه')">
+درخواست اشتراک
+</button>
+
+</div>
+
+
+<div class="plan">
+
+<div class="plan-icon">👑</div>
+
+<h2>Business</h2>
+
+<div class="plan-desc">
+برای کسب‌وکارها و فعالیت‌های گسترده
+</div>
+
+<div class="price">
+<strong>۳۹۹</strong>
+<span> هزار تومان / ماه</span>
+</div>
+
+<ul class="features">
+<li>تمام امکانات Pro</li>
+<li>امکانات تجاری</li>
+<li>اولویت ویژه</li>
+<li>پشتیبانی بهتر</li>
+<li>امکانات پیشرفته</li>
+</ul>
+
+<button class="btn" onclick="openRequest('Business','۳۹۹ هزار تومان / ماه')">
+درخواست اشتراک
+</button>
+
+</div>
+
+</section>
+
+
+<section class="current">
+
+<h3>📋 وضعیت درخواست من</h3>
+
+<div id="requestStatus" class="empty">
+هنوز درخواست اشتراکی ثبت نکرده‌اید.
+</div>
+
+</section>
+
+</main>
+
+
+<div class="modal" id="modal">
+
+<div class="modal-box">
+
+<h2>درخواست اشتراک</h2>
+
+<p id="selectedPlan"></p>
+
+<input id="phone" type="text" placeholder="شماره تماس">
+
+<textarea id="note" placeholder="توضیحات یا درخواست شما..."></textarea>
+
+<div class="modal-actions">
+
+<button class="btn cancel" onclick="closeModal()">
+انصراف
+</button>
+
+<button class="btn" onclick="submitRequest()">
+ارسال درخواست
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+let selectedPlan = "";
+let selectedPrice = "";
+
+const currentUser =
+JSON.parse(localStorage.getItem("nexora_current_user"));
+
+function openRequest(plan,price){
+
+    if(!currentUser){
+        alert("برای درخواست اشتراک ابتدا وارد حساب خود شوید.");
+        window.location.href="login.html";
+        return;
+    }
+
+    selectedPlan=plan;
+    selectedPrice=price;
+
+    document.getElementById("selectedPlan").innerText =
+    "پلن انتخابی: "+plan+" — "+price;
+
+    document.getElementById("modal").style.display="flex";
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display="none";
+}
+
+function submitRequest(){
+
+    const phone=document.getElementById("phone").value.trim();
+    const note=document.getElementById("note").value.trim();
+
+    if(!phone){
+        alert("لطفاً شماره تماس را وارد کنید.");
+        return;
+    }
+
+    const requests=
+    JSON.parse(localStorage.getItem("nexora_subscription_requests")||"[]");
+
+    const request={
+        id:"SUB-"+Date.now(),
+        userId:currentUser.id,
+        username:currentUser.username,
+        name:currentUser.name,
+        email:currentUser.email,
+        phone:phone,
+        plan:selectedPlan,
+        price:selectedPrice,
+        note:note,
+        status:"pending",
+        createdAt:new Date().toISOString()
+    };
+
+    requests.push(request);
+
+    localStorage.setItem(
+        "nexora_subscription_requests",
+        JSON.stringify(requests)
+    );
+
+    alert("درخواست شما با موفقیت ثبت شد و برای بررسی ارسال گردید.");
+
+    closeModal();
+
+    document.getElementById("phone").value="";
+    document.getElementById("note").value="";
+
+    loadStatus();
+}
+
+function loadStatus(){
+
+    if(!currentUser)return;
+
+    const requests=
+    JSON.parse(localStorage.getItem("nexora_subscription_requests")||"[]");
+
+    const mine=requests
+    .filter(x=>x.userId===currentUser.id)
+    .sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
+
+    const box=document.getElementById("requestStatus");
+
+    if(!mine.length){
+        box.innerHTML="هنوز درخواست اشتراکی ثبت نکرده‌اید.";
+        return;
+    }
+
+    const r=mine[0];
+
+    let statusText="در انتظار بررسی";
+    let cls="pending";
+
+    if(r.status==="approved"){
+        statusText="تأیید شده";
+        cls="approved";
+    }
+
+    if(r.status==="rejected"){
+        statusText="رد شده";
+        cls="rejected";
+    }
+
+    box.innerHTML=`
+        <div>
+            <strong>${r.plan}</strong>
+            <span class="status ${cls}">
+                ${statusText}
+            </span>
+        </div>
+        <p style="margin-top:10px;color:#777f92;font-size:11px">
+            درخواست: ${new Date(r.createdAt).toLocaleString("fa-IR")}
+        </p>
+    `;
+}
+
+loadStatus();
+
+</script>
+
+</body>
+</html>
